@@ -10,7 +10,7 @@ const Productos = require('./db/db.modelo.tendencias');
 
 const vistaApp = require('./app/vista/vista.app');
 const vistaTendencias= require('./app/vista/vista.tendencias');
-// const usuariosRoute = require('./routes/user.routes');
+const vistaUsuarios = require('./app/vista/vista.usuarios');
 // const midd = require('./midd/midd');
 
 
@@ -48,5 +48,6 @@ iniciarServidor();
 // Inicialización de las vistas
 vistaApp(app);
 vistaTendencias(app);
+vistaUsuarios(app);
 
 

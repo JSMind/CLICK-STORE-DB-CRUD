@@ -1,46 +1,54 @@
-//Importo los modulos necesarios
-const {DataTypes, Model } = require('sequelize');
-const sequelize = require('./db.conection')
-const Permisos = require ('./db.modelo.permisos')
+// Importar los modulos necesarios
+const {DataTypes, Model} = require('sequelize');
+const sequelize = require('./db.conection');
+const TipoUsuarios = require('./db.modelo.permisos');
 
-//Defino los modelos de DB que voy a utilizar
-
-const Usuarios = sequelize.define('usuarios' , {
-    Nombres : {
+// Definir el modelo de la tabla para la DB
+const Usuarios = sequelize.define('usuarios',{
+    Id_usuario:{
+        primaryKey: true,
+        autoIncrement: true,
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    Nombres:{
         type: DataTypes.STRING(50),
         allowNull: false
     },
-    Apellidos: {
+    Apellidos:{
         type: DataTypes.STRING(50),
         allowNull: false
     },
-    Email: {
-        type: DataTypes.STRING(50),
+    Correo:{
+        type: DataTypes.STRING(40),
         allowNull: false
     },
-    Telefono: {
+    Telefono:{
         type: DataTypes.STRING(15),
         allowNull: false
     },
-    Fecha_Nacimiento: {
-        type: DataTypes.DATE,
+    Fecha_Nacimiento:{
+        type: DataTypes.DATEONLY,
         allowNull: false
     },
-    Contrasena: {
-        type: DataTypes.STRING(50),
-        allowNull: false
-    },
-    Fk_Tipo_Usuario:{
-        type: DataTypes.INTEGER,
-        allowNull: false 
-    },
-    Activo: {
+    Activo:{
         type: DataTypes.BOOLEAN,
         allowNull: false
-    }   
+    },
+    Contrasena:{
+        type: DataTypes.STRING(15),
+        allowNull: false
+    },
+    Fk_Tipo_Usuarios:{
+        type: DataTypes.INTEGER,
+        allowNull: false
+    }
 }, {
-    timestamps: true
-})
+    timestamps: true,
+    createdAt: 'Fecha_Registro',
+    updatedAt: 'Fecha_Actualizacion'
+});
+Usuarios.belongsTo(TipoUsuarios,{foreignKey: 'Fk_Tipo_Usuarios'});
 
-Usuarios.belongsTo(Permisos, {foreignKey: 'Fk_Tipo_Usuario'});
+// Exportar el modelo
 module.exports = Usuarios
