@@ -6,11 +6,10 @@ const cors = require('cors');
 const sequelize = require('./db/db.conection');
 const Usuarios = require('./db/db.modelo.usuarios');
 const Permisos = require('./db/db.modelo.permisos');
-const Productos = require('./db/db.modelo.productos');
+const Productos = require('./db/db.modelo.tendencias');
 
-
-// const appRoute = require('./routes/app.routes')
-// const trendRoute = require('./routes/trend.routes');
+const vistaApp = require('./app/vista/vista.app');
+const vistaTendencias= require('./app/vista/vista.tendencias');
 // const usuariosRoute = require('./routes/user.routes');
 // const midd = require('./midd/midd');
 
@@ -20,6 +19,12 @@ const Productos = require('./db/db.modelo.productos');
 app.use(express.json());
 app.use(cors());
 // app.use(midd.limite);
+
+//Configuraciones globales
+app.use(express.static(__dirname + '/public'))
+app.set('view engine', 'ejs')
+app.set('views', __dirname + '/views')
+
 
 // Inicializamos nuestro servidor
 async function iniciarServidor(){
@@ -40,5 +45,8 @@ async function iniciarServidor(){
 iniciarServidor();
 
 
-// Inicialización de las rutas
+// Inicialización de las vistas
+vistaApp(app);
+vistaTendencias(app);
+
 

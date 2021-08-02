@@ -18,7 +18,7 @@
     <header>
       <nav class="navbar navbar-expand-md navbar-dark  navbar-light" style="background-color: #07a042b7;">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="./inicio.html">
             <img src="./assets/brand/logo-tienda.png" width="38" height="30" class="d-inline-block align-top" alt="Bootstrap" loading="lazy">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,23 +34,24 @@
                 <a class="nav-link" href="./contact.html">CONTACT</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./login.html">LOGIN</a>
-              </li>
-            </ul>
-            <form class="d-flex">
-              <button class="btn btn-outline-light" type="submit"><a href="./carrito.html">SHOPPING CART</a></button>
-            </form>
+                <a class="nav-link"  href="./login.html">LOGIN</a>
+              </li> 
+            </ul>      
           </div>
+          <div>
+            <a href="./checkout.html"><button class="btn btn-primary"  type="button">SHOPPING CART</button></a>
+          </div> 
         </div>
       </nav>
     </header>
-
+     
+    
     <div class="container">
-        <h1>TREND CALZADO</h1>
+        <h1>SHOES TREND</h1>
         <hr>
         <div class="row" id="items"> </div>
     </div>
-
+  
     <template id="template-card">
         <ul>
         <div class="col-12 mb-2">
@@ -64,7 +65,7 @@
           </div>
         </div>
       </ul>
-      </template> 
+      </template>   
       
       <footer class="container">
         <p class="float-end"><a href="#">Back to top</a></p>
