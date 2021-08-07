@@ -26,10 +26,21 @@ class Producto{                                     //Definimos nuestra clase Pr
         items.appendChild(fragment)
     }
     
-    productoseleccionado(producto){                    //Metodo que imprime el producto seleccionado
-        return this.data[producto]      
+    productoseleccionado(numeroelemento){  
+
+        const  producto = this.data.resultado[numeroelemento]
+        if(producto.hasOwnProperty(producto.cantidad)){
+            producto.cantidad+=1
+            carrito[numeroelemento].push(producto)
+        } else {
+           producto.cantidad = 1
+           carrito.push(producto)
+        }
+        this.data.resultado[numeroelemento] = producto;
+          
     }
 }
+
 
 async function obtenerProductos(url){                   //Metodo que consumira de nuestra API propia los productos relacionados a la subcategoria que selecciono el usuario
     let Data
@@ -37,22 +48,39 @@ async function obtenerProductos(url){                   //Metodo que consumira d
             .then(response => response.json())       
             .then(formatobjeto => {
                 Data = new Producto(formatobjeto)   
-                console.log(Data)
+                // console.log(Data)
                 Data.mostrarProductos()               
             })
             .catch(error =>{
                 console.log(error)                   
             })
         
+    
     const botonProducto = document.querySelector(".container") 
-    
-    let carrito = []                                                   //Areglo que contendra los objetos Produtos
-    
     botonProducto.addEventListener("click", e => {                     //Evento que detecta EL PRODUCTO SELECCIONADO POR el usuario
         
         if (e.target.classList.contains("btn-producto")){
-            const producto = e.target.dataset.id
-            carrito.push(Data.productoseleccionado(producto))           
+
+            let numeroelemento = e.target.dataset.id
+            Data.productoseleccionado(numeroelemento)
+            
+            // carrito.push[numeroelemento] =  {...producto}           
+            
+            
+            
+            
+            
+            // if ( producto.id_producto){
+            //     carrito.push(producto)
+            // } else {
+            //     producto.cantidad += 1;
+            // }
+            
+            
+            // if (carrito.hasOwnProperty(producto.id)) {
+            //     producto.cantidad = carrito[producto.id].cantidad + 1
+            // }
+
             console.log(carrito)                                       //Se imprime en consola el arreglo carrito con los Productos(objetos) seleccionados
             localStorage.setItem('carrito', JSON.stringify(carrito))   //Guardamos en localstorage el arreglo carrito
         }  
@@ -62,6 +90,18 @@ async function obtenerProductos(url){                   //Metodo que consumira d
 }  
 
 
+
+
+
+
+
+
+let carrito = []                                                    //Areglo que contendra los objetos Produtos
+
+
+if (localStorage.getItem('carrito')) {
+    carrito = JSON.parse(localStorage.getItem('carrito'))
+}
 const idcategoria =localStorage.getItem('idcategoria');           //Recuperamos la variable "idsubcategoria" del localstorage
 
 obtenerProductos("http://localhost:3000/productos/categoria"+idcategoria)  //Aqui se inicializa el codigo
