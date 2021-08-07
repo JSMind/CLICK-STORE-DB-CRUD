@@ -12,11 +12,11 @@ const fetch = require('node-fetch');
 // Exportar los modulos
 module.exports = (app) => {
 
-    app.get('/inicio', async(req,res) => {
+    app.get('/home', async(req,res) => {
         try {
             // let resultado = await controladorCategorias.listarCategorias();
             // res.render('inicio', {categorias : resultado})   
-            res.render('inicio')  
+            res.render('home')  
 
         } catch (error) {
             console.log('Error al renderizar la pagina principal');
@@ -24,9 +24,9 @@ module.exports = (app) => {
         }
     });
 
-    app.get('/mostrandoproductos', async(req,res) => {
+    app.get('/product', async(req,res) => {
         try {
-            res.render('producto')  
+            res.render('product')  
 
         } catch (error) {
             console.log('Error al renderizar la pagina principal');
@@ -36,7 +36,7 @@ module.exports = (app) => {
 
     app.get('/signup', async(req, res) =>{
         try {
-            res.render('sign_up')
+            res.render('signup')
         } catch (error) {
             console.log('Error al renderizar la página');
             res.status(400).json(error.message);

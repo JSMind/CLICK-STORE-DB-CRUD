@@ -27,22 +27,36 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent2">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="inicio.html">CLICK STORE</a>
+                <a class="nav-link active" aria-current="page" href="/home">CLICK STORE</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  CATEGORIES
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown2" style="background-color: #07a042b7;">
+                  <% /* %>   <% categorias.forEach(function(categoria){ %>   
+                   <%= categoria.nombre_categoria %>   
+                     <%  }) %>  <% */ %>
+                  <template id = "categorias">
+                    <li><a class="dropdown-item btn-categoria" href="/product"></a></li>
+                  </template>
+                </ul>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="./contact.html">CONTACT</a>
+                <a class="nav-link" href="/contact">CONTACT</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./login.html">LOGIN</a>
+                <a class="nav-link" href="/login">LOGIN</a>
               </li>
               <div>
-                <a href="./tendencia.html"><button class="btn btn-warning"  type="button">SHOES TREND</button></a>
+                <a href="/product"><button class="btn btn-warning"  type="button">TREND</button></a>
               </div> 
             </ul>  
           </div>
             <div>
-              <a href="./checkout.html"><button class="btn btn-primary"  type="button">SHOPPING CART</button></a>
+              <a href="/cart"><button class="btn btn-primary"  type="button">SHOPPING CART</button></a>
             </div> 
         </div>
       </nav>
@@ -73,7 +87,9 @@
         <p class="float-end"><a href="#">Back to top</a></p>
         <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </footer>
-      <script src="./assets/dist/js/producto.js"> </script>
+      
+      <script src="./assets/dist/js/home.js"></script>
+      <script src="./assets/dist/js/product.js"> </script>
       <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
 
       
