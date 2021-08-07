@@ -1,12 +1,13 @@
 const sequelize = require('../../db/db.conection');
-const Productos = require('../../db/db.modelo.tendencias')
+const Productos = require('../../db/db.modelo.productos')
 
 
-module.exports.obtenerProductos = async () => {
+module.exports.obtenerProductos = async (idcategoria) => {
   try {
-    let resultado = await sequelize.query('SELECT * FROM Productos')
+    let resultado = await Productos.findAll({where: {id_categoria: idcategoria }});
+    // let resultado = await sequelize.query(`SELECT * FROM Productos WHERE id_categoria='${idcategoria}'`)
     console.log(resultado)
-    return resultado[0]
+    return resultado
   } catch (err) {
     console.log(error)
     throw new Error ('Ocurrio un error en la consulta de usuarios')
@@ -16,12 +17,13 @@ module.exports.obtenerProductos = async () => {
 module.exports.altaProducto = async (productos) => {
   try {
     let newProducto = await Productos.create({
-     Id_Producto: productos.id,
-     Nombre_Producto:productos.title,
-     Precio: productos.price,
-     Url_Imagen:productos.thumbnail,
-     Descripcion:productos.descripcion,
-     Stock: productos.stock
+     id_producto: productos.id_producto,
+     nombre_producto:productos.title,
+     precio: productos.price,
+     url_imagen:productos.thumbnail,
+     descripcion:productos.descripcion,
+     stock: productos.stock,
+     id_categoria: productos.id_categoria
     });
     console.log(newProducto)
     return newProducto
@@ -33,7 +35,7 @@ module.exports.altaProducto = async (productos) => {
 
 module.exports.bajaProducto = async (IdProducto) => {
   try{
-    let bajaProducto = await Productos.destroy({where: {Id_Producto:`${IdProducto}`}})
+    let bajaProducto = await Productos.destroy({where: {id_producto:`${IdProducto}`}})
     console.log (bajaProducto)
     
   }
@@ -42,7 +44,6 @@ module.exports.bajaProducto = async (IdProducto) => {
     throw new Error('Ocurrio un error al dar de baja el Producto de la Base de Datos')
   }
 
-  
 
 
 }

@@ -7,9 +7,10 @@ class Categoria{                            //Definimos nuestra clase Categoria
         let lista = document.querySelector(".dropdown-menu");
         let fragment = document.createDocumentFragment();
         let tempCategoria = document.querySelector("#categorias").content;
-        this.datos.forEach(element => {
-            tempCategoria.querySelector("a").dataset.id = element.id;
-            tempCategoria.querySelector(".dropdown-item").textContent = element.name;
+        
+        this.datos.resultado.forEach(element => {
+            tempCategoria.querySelector("a").dataset.id = element.id_categoria;
+            tempCategoria.querySelector(".dropdown-item").textContent = element.nombre_categoria;
             const clon = tempCategoria.cloneNode(true);
             fragment.appendChild(clon);
             
@@ -35,7 +36,7 @@ class Categoria{                            //Definimos nuestra clase Categoria
 }
 
 document.addEventListener("DOMContentLoaded", e => 
-Categoria.obtenerCategorias('http://localhost:3000/categoria'));             //Aqui se inicializa el codigo
+Categoria.obtenerCategorias('http://localhost:3000/categorias'));             //Aqui se inicializa el codigo
 
 const botonCategoria = document.querySelector(".navbar-collapse")  
 botonCategoria.addEventListener("click", e => {                     //Evento que detecta la seleccion de la categoria del usuario

@@ -6,7 +6,7 @@ const middUsuarios = require('../../middlewares/midd.usuarios');
 module.exports = async (app) => {
 
     // Endpoints a los que solo podran acceder los administradores
-    app.get('/administrador/listar/usuarios', async (req,res) => {
+    app.get('/usuarios', async (req,res) => {
         try {
             let consultaUsuarios = await controladorUsuarios.listarUsuarios();
             res.status(200).json({message: 'Consulta exitosa', consultaUsuarios});
@@ -16,11 +16,11 @@ module.exports = async (app) => {
         }
     })
 
-    app.delete('/administrador/delete/usuarios/:idUsuario', async (req,res) => {
+    app.delete('/usuarios/:idUsuario', async (req,res) => {
         let idUsuario = req.params.idUsuario;
         try {
             let eliminarUsuario = await controladorUsuarios.eliminarUsuario(idUsuario);
-            res.status(200).json({message: 'El usuario se elimino correctamente', eliminarUsuario});
+            res.status(200).json({message: 'El usuario se elimino correctamente'});
         } catch (error) {
             console.log(error.message);
             res.status(500).json({message: 'Ocurrio un error en el servidor', error: error.message});

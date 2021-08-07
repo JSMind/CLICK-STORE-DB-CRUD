@@ -13,21 +13,6 @@ let generarToken = async(usuario) => {
     }
 }
 
-
-let inspeccionarUsuario = async(usuario) =>{
-    try {
-        let usuarioValido = await modeloUsuarios.inspeccionarUsuario(usuario);
-        if (usuarioValido){
-            return usuarioValido;
-        }else{
-            throw new Error('Usuario no valido')
-        }
-    } catch (error) {
-        console.log(error);
-        throw new Error('Ocurrio un error desde el controlador');
-    }
-}
-
 let verificarUsuario = async(token) =>{
     try {
         const validacion = jwt.verify(token, process.env.SECRET_KEY);
@@ -37,6 +22,20 @@ let verificarUsuario = async(token) =>{
             throw new Error('Token no valido')
         }
 
+    } catch (error) {
+        console.log(error);
+        throw new Error('Ocurrio un error desde el controlador');
+    }
+}
+
+let inspeccionarUsuario = async(usuario) =>{
+    try {
+        let usuarioValido = await modeloUsuarios.inspeccionarUsuario(usuario);
+        if (usuarioValido){
+            return usuarioValido;
+        }else{
+            throw new Error('Usuario no valido')
+        }
     } catch (error) {
         console.log(error);
         throw new Error('Ocurrio un error desde el controlador');
@@ -66,7 +65,6 @@ let crearUsuario = async (usuario) => {
 let eliminarUsuario = async (idUsuario) => {
     try {
         let borrarUsuario = await modeloUsuarios.eliminarUsuario(idUsuario);
-        
     } catch (error) {
         console.log(error);
         throw new Error('Ocurrio un error desde el controlador');

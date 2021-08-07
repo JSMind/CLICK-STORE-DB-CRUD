@@ -1,38 +1,29 @@
-//Importo los modulos necesarios
 const {DataTypes, Model } = require('sequelize');
 const sequelize = require('./db.conection')
 
 //Defino los modelos de DB que voy a utilizar
 
-const Productos = sequelize.define('Productos' , {
-    Id_Producto : {
+const Categorias = sequelize.define('Categorias' , {
+    id_categoria : {
         type: DataTypes.STRING(50),
         allowNull: false,
         primaryKey: true
     },
-    Nombre_Producto : {
+    nombre_categoria : {
         type: DataTypes.STRING(50),
         allowNull: false
     },
-    Precio: {
-        type: DataTypes.FLOAT,
+    activo:{
+        type: DataTypes.BOOLEAN,
         allowNull: false
     },
-    Url_Imagen: {
-        type: DataTypes.STRING(70),
-        allowNull: false
-    },
-    Descripcion: {
+    descripcion: {
         type: DataTypes.STRING(100),
         allowNull: false
-    },
-    Stock: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    }  
-    
+    }
+
 }, {
     timestamps: true
 })
 
-module.exports = Productos
+module.exports = Categorias

@@ -39,7 +39,7 @@ class Tendencia{                          //Definimos nuestra clase Subcategoria
     
 }
 
-Tendencia.obtenerTendenciasCalzado( 'http://localhost:3000/productoscalzado')  //Aqui se inicializa el codigo
+Tendencia.obtenerTendenciasCalzado( 'http://localhost:3000/productostendencia/listar')  //Aqui se inicializa el codigo
 
 const botonSubcategoria = document.querySelector(".container")                      //Evento que detecta la seleccion de la subcategoria del usuario
 botonSubcategoria.addEventListener("click", e => {

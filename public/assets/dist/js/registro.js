@@ -10,7 +10,7 @@ nuevoRegistro.addEventListener('submit', async (evento) =>{
     let contrasena = document.getElementById('txtPassword').value;
     
     console.log(nombre,apellidos,contrasena)
-    let result = await fetch('http://localhost:3000/usuarios',{
+    let result = await fetch('http://localhost:3000/usuario/registro',{
         method:'post',
         headers: {
             "Accept": "application/json, text/plain, *,*",

@@ -1,10 +1,11 @@
 // Importar los modulos
-const modeloProductos = require('../modelo/modelo.tendencias')
+const modeloProductos = require('../modelo/modelo.productos')
 
 //exportar los modulos que vamos a utilizar
-module.exports.listarProductos = async ()=> {
+module.exports.listarProductos = async (idcategoria)=> {
     try {
-        const resultado = await modeloProductos.obtenerProductos()
+        // const id = JSON.stringify(idcategoria)
+        const resultado = await modeloProductos.obtenerProductos(idcategoria)
         return resultado
     }catch (error) {
         console.log(error)
@@ -12,7 +13,7 @@ module.exports.listarProductos = async ()=> {
     }
 }
 
-module.exports.agregarProductosTendencia = async (productos)=> {
+module.exports.agregarProducto= async (productos)=> {
     try {
         const resultado = await modeloProductos.altaProducto(productos)
         return resultado

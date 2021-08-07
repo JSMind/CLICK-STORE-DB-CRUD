@@ -4,15 +4,15 @@ const sequelize = require('./db.conection')
 
 //Defino los modelos de DB que voy a utilizar
 
-const Permisos = sequelize.define('permisos' , {
-    Tipo_Usuario: {
+const Permisos = sequelize.define('Permisos' , {
+    tipo_usuario: {
         autoIncrement: true,
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true
     },
     
-    Descripcion: {
+    descripcion: {
         type: DataTypes.STRING(20),
         allowNull: false,       
     }

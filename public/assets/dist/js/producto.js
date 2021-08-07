@@ -13,10 +13,10 @@ class Producto{                                     //Definimos nuestra clase Pr
         const fragment = document.createDocumentFragment()
         
         let i = 0;
-        this.data.forEach(item => {  
-            templateCard.querySelector('h5').textContent = item.title
-            templateCard.querySelector('p').textContent = "PRECIO : $"+ item.price
-            templateCard.querySelector('img').setAttribute("src", item.thumbnail)
+        this.data.resultado.forEach(item => {  
+            templateCard.querySelector('h5').textContent = item.nombre_producto
+            templateCard.querySelector('p').textContent = "PRECIO : $"+ item.precio
+            templateCard.querySelector('img').setAttribute("src", item.url_imagen)
             templateCard.querySelector('button').dataset.id = i
             const clone = templateCard.cloneNode(true)
             fragment.appendChild(clone)
@@ -65,9 +65,9 @@ async function obtenerProductos(url){                   //Metodo que consumira d
 
 
 
-const idsubcategoria =localStorage.getItem('idsubcategoria');           //Recuperamos la variable "idsubcategoria" del localstorage
+const idcategoria =localStorage.getItem('idcategoria');           //Recuperamos la variable "idsubcategoria" del localstorage
 
-obtenerProductos("http://localhost:3000/subcategoria/"+idsubcategoria)  //Aqui se inicializa el codigo
+obtenerProductos("http://localhost:3000/productos/categoria"+idcategoria)  //Aqui se inicializa el codigo
 
 
 

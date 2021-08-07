@@ -6,11 +6,13 @@ const cors = require('cors');
 const sequelize = require('./db/db.conection');
 const Usuarios = require('./db/db.modelo.usuarios');
 const Permisos = require('./db/db.modelo.permisos');
-const Productos = require('./db/db.modelo.tendencias');
+const Productos = require('./db/db.modelo.productos');
+const Categorias = require('./db/db.modelo.categorias');
 
 const vistaApp = require('./app/vista/vista.app');
-const vistaTendencias= require('./app/vista/vista.tendencias');
+const vistaProductos= require('./app/vista/vista.productos');
 const vistaUsuarios = require('./app/vista/vista.usuarios');
+const vistaCategorias = require('./app/vista/vista.categorias');
 // const midd = require('./midd/midd');
 
 
@@ -29,9 +31,11 @@ app.set('views', __dirname + '/views')
 // Inicializamos nuestro servidor
 async function iniciarServidor(){
     try {
+        await Categorias.sync({alter:true});
         await Productos.sync({alter:true});
         await Permisos.sync({alter:true});
         await Usuarios.sync({alter:true});
+
         await sequelize.authenticate();
         console.log('Se establecio una conexión exitosa con la base de datos');
         app.listen(process.env.PORT, () => {
@@ -46,8 +50,7 @@ iniciarServidor();
 
 
 // Inicialización de las vistas
+vistaCategorias(app);
 vistaApp(app);
-vistaTendencias(app);
+vistaProductos(app);
 vistaUsuarios(app);
-
-

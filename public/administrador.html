@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>CLICK STORE</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
+    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">  <!-- Bootstrap core CSS -->
+    <link href="./assets/dist/css/form-validation.css" rel="stylesheet">    <!-- Custom styles for this template -->
+
+  </head>
+  
+
+<body class="bg-light">
+    <nav class="navbar navbar-expand-md navbar-dark  navbar-light" style="background-color: #07a042b7;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="./assets/brand/logo-tienda.png" width="38" height="30" class="d-inline-block align-top" alt="Bootstrap" loading="lazy">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="inicio.html">CLICK STORE</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  CATEGORIES
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown2" style="background-color: #07a042b7;">
+                  <template id = "categorias">
+                    <li><a class="dropdown-item btn-categoria" href="./subcategorias.html"></a></li>
+                  </template>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="./contact.html">CONTACT</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./login.html">LOGIN</a>
+              </li>
+              <div>
+                <a href="./tendencia.html"><button class="btn btn-warning"  type="button">SHOES TREND</button></a>
+              </div>  
+            </ul>
+              
+          </div>
+          
+        </div>
+      </nav>
+<div class="container">
+    <main>
+      <div class="row g-3">
+        <!-- Formulario de datos -->
+        <div class="col-md-7 col-lg-8">
+          <h4 class="mb-3">ALTA DE PRODUCTOS</h4>
+          <form class="needs-validation" id="formulario" novalidate>
+            <div class="row g-3">
+
+              <div class="col-12">
+                <label for="Id_Producto" class="form-label"> Id Producto</label>
+                <input type="text" class="form-control" id="Id_Producto" placeholder="Ej: MLM673563393" value="" required>
+              </div>
+
+              <div class="col-12">
+                <label for="Nombre_Producto" class="form-label">Nombre Producto</label>
+                <input type="text" class="form-control" id="Nombre_Producto" placeholder="Ej: Tenis Dc Unisex Negro Midway" value="" required>
+              </div>
+
+              <div class="col-12">
+                <label for="Precio" class="form-label">Precio</label>
+                <input type="text" class="form-control" id="Precio" placeholder="Ej: 623.00" value="" required>
+              </div>
+
+              <div class="col-12">
+                <label for="Url_Imagen" class="form-label">Url imagen</label>
+                <input type="text" class="form-control" id="Url_Imagen" placeholder="Ej: http://http2.mlstatic.com/D_844384-MLM40694566668_022020-O.jpg" value="" required>
+              </div>
+
+              <div class="col-12">
+                <label for="Descripcion" class="form-label">Descripción</label>
+                <input type="text" class="form-control" id="Descripcion" placeholder="Ej: Tenis negros con suela blanca" value="" required>
+              </div>
+              
+              <div class="col-12">
+                <label for="Stock" class="form-label">Stock</label>
+                <input type="text" class="form-control" id="Stock" placeholder="Ej: 20" value="" required>
+              </div>
+              
+  
+            <hr class="my-4">
+            <a href="#" ><button class="w-100 btn btn-success btn-lg" type="submit">CREAR PRODUCTO</button></a>
+          </form>
+        </div>
+  
+      </div>
+    </main>
+
+    <script src="./assets/dist/js/administrador.js"></script>
+</body>
+</html>
