@@ -1,3 +1,4 @@
+
 class Producto{                                     //Definimos nuestra clase Producto
 
     
@@ -30,8 +31,6 @@ class Producto{                                     //Definimos nuestra clase Pr
     }
 }
 
-
-
 async function obtenerProductos(url){                   //Metodo que consumira de nuestra API propia los productos relacionados a la subcategoria que selecciono el usuario
     let Data
     await fetch(url)                                   
@@ -63,15 +62,9 @@ async function obtenerProductos(url){                   //Metodo que consumira d
 }  
 
 
-
-
 const idcategoria =localStorage.getItem('idcategoria');           //Recuperamos la variable "idsubcategoria" del localstorage
 
 obtenerProductos("http://localhost:3000/productos/categoria"+idcategoria)  //Aqui se inicializa el codigo
-
-
-
-
 
 
 

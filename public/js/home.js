@@ -46,4 +46,13 @@ botonCategoria.addEventListener("click", e => {                     //Evento que
     }  
 })
 
+const botonTrend = document.getElementById("trend")  
+botonTrend.addEventListener("click", e => {                     //Evento que detecta la seleccion de la categoria del usuario
+    if (e.target.classList.contains("btn-warning")){
+        const idcategoria="CSMLM100" 
+        localStorage.setItem('idcategoria', idcategoria)            //Se guarda la variable "idcategoria" en el localstorage
+    }  
+})
+
+
 

@@ -12,7 +12,7 @@ const Productos = sequelize.define('Productos' , {
         primaryKey: true
     },
     nombre_producto : {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(200),
         allowNull: false
     },
     precio: {
@@ -20,11 +20,11 @@ const Productos = sequelize.define('Productos' , {
         allowNull: false
     },
     url_imagen: {
-        type: DataTypes.STRING(70),
+        type: DataTypes.STRING(100),
         allowNull: false
     },
     descripcion: {
-        type: DataTypes.STRING(100),
+        type: DataTypes.STRING(150),
         allowNull: false
     },
     stock: {

@@ -1,13 +1,5 @@
 // Importación de modulos necesarios a utilizar
-const controladorCategorias = require('../controlador/controlador.categorias')
-const fetch = require('node-fetch');
-
-// Funciones a emplear
-// async function getApi(url){
-//     const respuesta = await fetch(url);
-//     const datos = await respuesta.json();
-//     return datos;
-// }
+// const controladorCategorias = require('../controlador/controlador.categorias')
 
 // Exportar los modulos
 module.exports = (app) => {
@@ -24,6 +16,24 @@ module.exports = (app) => {
         }
     });
 
+    app.get('/signup', async(req, res) =>{
+        try {
+            res.render('signup')
+        } catch (error) {
+            console.log('Error al renderizar la página');
+            res.status(400).json(error.message);
+        }
+    });
+
+    app.get('/login', async(req, res) =>{
+        try {
+            res.render('login')
+        } catch (error) {
+            console.log('Error al renderizar la página');
+            res.status(400).json(error.message);
+        }
+    });
+
     app.get('/product', async(req,res) => {
         try {
             res.render('product')  
@@ -34,66 +44,42 @@ module.exports = (app) => {
         }
     });
 
-    app.get('/signup', async(req, res) =>{
+    app.get('/cart', async(req, res) =>{
         try {
-            res.render('signup')
+            res.render('cart')
         } catch (error) {
             console.log('Error al renderizar la página');
             res.status(400).json(error.message);
         }
-    })
+    });
 
-    app.get('/login', async(req, res) =>{
+    app.get('/contact', async(req, res) =>{
         try {
-            res.render('login')
+            res.render('contact')
         } catch (error) {
             console.log('Error al renderizar la página');
             res.status(400).json(error.message);
         }
-    })
+    });
 
+    app.get('/congratulations', async(req, res) =>{
+        try {
+            res.render('congratulations')
+        } catch (error) {
+            console.log('Error al renderizar la página');
+            res.status(400).json(error.message);
+        }
+    });
     
+    app.get('/administrator', async(req, res) =>{
+        try {
+            res.render('administrator')
+        } catch (error) {
+            console.log('Error al renderizar la página');
+            res.status(400).json(error.message);
+        }
+    })    
    
 }
 
-    // app.get('/categoria', async(req,res) => {
-    //     try {
-    //         async function getRespuesta(){
-    //             const respuesta = await getApi(process.env.CATEGORIAS);
-    //             return respuesta;
-    //         }
-    //         res.status(200).send(await getRespuesta());
-    //     } catch (error) {
-    //         console.log('Error en el método GET de la app');
-    //         res.status(400).json(error.message);
-    //     }
-    // });
-
-    // app.get('/categoria/:idCategoria', async(req,res)=>{
-    //     try {
-    //         const idCategoria = req.params.idCategoria;
-    //         async function getRespuesta(){
-    //             let respuesta = await getApi(process.env.SUBCATEGORIAS+idCategoria);
-    //             return respuesta;
-    //         }
-    //         res.status(200).send(await getRespuesta());
-    //     } catch (error) {
-    //         console.log('Error en el método GET de la app');
-    //         res.status(400).json(error.message);
-    //     }
-    // });
-
-//     app.get('/subcategoria/:idSubcategoria', async(req,res)=>{
-//         try {
-//             const idSubcategoria = req.params.idSubcategoria;
-//             async function getRespuesta(){
-//                 let respuesta = await getApi(process.env.PRODUCTOS+idSubcategoria);
-//                 return respuesta.results;
-//             }
-//             res.status(200).send(await getRespuesta());            
-//         } catch (error) {
-//             console.log('Error en el método GET de la app');
-//             res.status(400).json(error.message);
-//         }
-//     });
-// }
+    
