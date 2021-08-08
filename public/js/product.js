@@ -27,17 +27,17 @@ class Producto{                                     //Definimos nuestra clase Pr
     }
     
     productoseleccionado(numeroelemento){  
-
-        const  producto = this.data.resultado[numeroelemento]
-        if(producto.hasOwnProperty(producto.cantidad)){
+        let producto = this.data.resultado[numeroelemento]
+        
+        if(producto.hasOwnProperty('cantidad')){
             producto.cantidad+=1
-            carrito[numeroelemento].push(producto)
-        } else {
-           producto.cantidad = 1
-           carrito.push(producto)
+            carrito[numeroelemento] = producto
+        }else{
+            producto.cantidad=1
+            carrito.push(producto)
         }
-        this.data.resultado[numeroelemento] = producto;
-          
+        this.data.resultado[numeroelemento]= producto
+                 
     }
 }
 
@@ -64,23 +64,6 @@ async function obtenerProductos(url){                   //Metodo que consumira d
             let numeroelemento = e.target.dataset.id
             Data.productoseleccionado(numeroelemento)
             
-            // carrito.push[numeroelemento] =  {...producto}           
-            
-            
-            
-            
-            
-            // if ( producto.id_producto){
-            //     carrito.push(producto)
-            // } else {
-            //     producto.cantidad += 1;
-            // }
-            
-            
-            // if (carrito.hasOwnProperty(producto.id)) {
-            //     producto.cantidad = carrito[producto.id].cantidad + 1
-            // }
-
             console.log(carrito)                                       //Se imprime en consola el arreglo carrito con los Productos(objetos) seleccionados
             localStorage.setItem('carrito', JSON.stringify(carrito))   //Guardamos en localstorage el arreglo carrito
         }  
