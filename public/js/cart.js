@@ -5,7 +5,7 @@ const footer = document.getElementById('footer');
 const templateFooter = document.getElementById('template-footer').content;
 const fragment = document.createDocumentFragment()
 
-items.addEventListener('click', e => { btnAumentarDisminuir(e) })
+productos.addEventListener('click', e => { btnAumentarDisminuir(e) })
 
 const btnAumentarDisminuir = e => {
     // console.log(e.target.classList.contains('btn-info'))
@@ -37,7 +37,8 @@ let mostrarCarrito = (carrito) => {
     carrito.forEach(producto => {
         templateCarrito.querySelector('th').textContent = producto.id_producto
         templateCarrito.querySelectorAll('td')[0].textContent = producto.nombre_producto
-        templateCarrito.querySelectorAll('td')[1].textContent = producto.cantidad
+        templateCarrito.querySelector('img').setAttribute("src", producto.url_imagen)
+        templateCarrito.querySelectorAll('td')[2].textContent = producto.cantidad
         templateCarrito.querySelector('span').textContent = producto.precio * producto.cantidad
 
         templateCarrito.querySelector('.btn-agregar').dataset.id = i
@@ -61,6 +62,7 @@ let mostrarTotales = () => {
         `
         return;
     }
+
     // Calcular la cantidad total de articulos y su costo total
     let cantidadTotalArtic = 0
     let costoTotal = 0
