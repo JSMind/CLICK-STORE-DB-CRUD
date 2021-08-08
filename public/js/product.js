@@ -26,17 +26,28 @@ class Producto{                                     //Definimos nuestra clase Pr
         items.appendChild(fragment)
     }
     
-    productoseleccionado(numeroelemento){  
+    productoseleccionado(numeroelemento){                           //Metodo que trae del constructor el producto seleccionado por el usuario
+                                                                    // y agrega al carrito como un producto o altera la cantidad del producto en caso de que ya exita
         let producto = this.data.resultado[numeroelemento]
         
-        if(producto.hasOwnProperty('cantidad')){
-            producto.cantidad+=1
-            carrito[numeroelemento] = producto
-        }else{
+        if(carrito.length==0){
             producto.cantidad=1
             carrito.push(producto)
+        } else {
+            let existe = 0;
+            carrito.forEach(elemento => {
+                if (producto.id_producto === elemento.id_producto){
+                    elemento.cantidad += 1;
+                    existe = 1;
+                }  
+            })
+
+            if(existe == 0){
+                producto.cantidad=1
+                carrito.push(producto)
+            }   
+           
         }
-        this.data.resultado[numeroelemento]= producto
                  
     }
 }
@@ -56,8 +67,8 @@ async function obtenerProductos(url){                   //Metodo que consumira d
             })
         
     
-    const botonProducto = document.querySelector(".container") 
-    botonProducto.addEventListener("click", e => {                     //Evento que detecta EL PRODUCTO SELECCIONADO POR el usuario
+    const botonAgregarProducto = document.querySelector(".container") 
+    botonAgregarProducto.addEventListener("click", e => {                     //Evento que detecta EL PRODUCTO SELECCIONADO POR el usuario
         
         if (e.target.classList.contains("btn-producto")){
 
