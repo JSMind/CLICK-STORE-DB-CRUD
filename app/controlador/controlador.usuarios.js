@@ -58,7 +58,7 @@ let crearUsuario = async (usuario) => {
         return nuevoUsuario;
     } catch (error) {
         console.log(error);
-        throw new Error('Ocurrio un error desde el controlador');
+        throw new Error(error.message);
     }
 }
 

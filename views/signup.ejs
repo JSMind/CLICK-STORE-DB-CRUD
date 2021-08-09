@@ -3,10 +3,8 @@
 </head>
 
 <body>
-    <% /* %>   <!-- <header>
-        <%- include('template/navbar') %>
-    </header> --> <% */ %> 
-    <header>
+
+  <header>
         <nav class="navbar navbar-expand-md navbar-dark  navbar-light" style="background-color: #07a042b7;">
           <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -45,7 +43,7 @@
             </div>
 
             <div class="col-md-12 col-lg-12">
-                <form class="needs-validation"  novalidate>
+                <form class="needs-validation" novalidate>
                     <div class="row g-3">
                         <div class="col-sm-6">
                             <label for="firstName" class="form-label">Nombre(s)</label>
@@ -57,7 +55,7 @@
 
                         <div class="col-sm-6">
                             <label for="lastName" class="form-label">Apellidos</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Ej: Cruz Sánchez" value="" required>
+                            <input type="text" class="form-control" id="lastName" c value="" required>
                             <div class="invalid-feedback">
                                 Por favor, introduzca sus apellidos
                             </div>
@@ -73,10 +71,9 @@
 
                         <div class="col-12">
                             <label for="phone" class="form-label">Telefono</label>
-                            <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" required>
-                            <small>Ejemplo: 123 456 7890</small>
+                            <input type="tel" class="form-control" id="phone" name="phone" required>
                             <div class="invalid-feedback">
-                              Por favor, introduzca un número telefonico valido (Como en el ejemplo)
+                              Por favor, introduzca un número telefonico valido (Ej: 12 34 56 7890)
                             </div>
                         </div>
 

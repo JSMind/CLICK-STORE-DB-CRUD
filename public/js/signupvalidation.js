@@ -1,10 +1,23 @@
 //  Función para validar entrada de los campos del formulario de tipo texto
-let validarTxt = (datos,tipo) => {
+let validarTxt = (texto, tipo) =>{
     try {
-        if (datos == null || datos == 0 || /^\s+$/.test(datos)) {
-            throw new Error (`El campo de ${tipo} no es correcto, ingrese nuevamente un valor valido para este campo`)
-        } else {
-            return 'Registro valido'
+        if(texto == null || texto.length < 4 || /^\s+$/.test(texto)){
+            throw new Error (`El campo de ${tipo}, debe poseer almenos cuatro letras`);
+        } else{
+            return 'Registro Valido'
+        }
+    } catch (error) {
+        console.log(error)
+        throw new Error (error.message)
+    }
+}
+
+let validarOtros = (datos,tipo) => {
+    try {
+        if(datos == null || datos == 0){
+            throw new Error (`El campo de ${tipo}, no debe ser vacio`);
+        } else{
+            return 'Registro Valido'
         }
     } catch (error) {
         console.log(error)
@@ -14,7 +27,7 @@ let validarTxt = (datos,tipo) => {
 
 let validarContrasena = (contrasena) => {
     try {
-        if (contrasena == null || contrasena == 0 || contrasena.length < 8 || /^\s+$/.test(contrasena)) {
+        if (contrasena == null || contrasena.length < 8 || /^\s+$/.test(contrasena)) {
             throw new Error (`El campo de contraseña no cumple con los parametros`)
         } else {
             return 'Registro valido'
@@ -26,14 +39,16 @@ let validarContrasena = (contrasena) => {
 }
 
 let validarEmail = (correo) => {
-    try {     
-        if (correo == null || correo == 0 || (/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(correo)) ){
-            throw new Error ('El email ingresado no es correcto')
+    try {
+        
+        let formatoEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+        if (!formatoEmail.test(correo)){
+            throw new Error ('Ingrese un email valido de la forma usuario@mail.com')
         } else {
             return 'Registro de email valido'
         }
     } catch (error) {
         console.log(error)
-        throw new Error ('El email no se valido')
+        throw new Error (error.message)
     }
 }

@@ -35,7 +35,7 @@ module.exports = async (app) => {
             res.status(200).json({message: 'Registro de usuario exitoso', nuevoUsuario})
         } catch (error) {
             console.log(error.message);
-            res.status(500).json({message: 'Ocurrio un error en el servidor', error: error.message});
+            res.status(500).json({message: error.message});
         }
     })
 

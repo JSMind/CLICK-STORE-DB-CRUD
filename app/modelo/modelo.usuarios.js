@@ -44,7 +44,7 @@ let crearUsuario = async (usuario) => {
                 fecha_nacimiento: usuario.fecha_nacimiento,
                 activo: usuario.activo,
                 contrasena: usuario.contrasena,
-                fk_tipo_usuarios: usuario.fk_tipo_usuarios
+                tipo_usuario: usuario.tipo_usuario
             });
             return nuevoUsuario;
         } else {
@@ -52,7 +52,7 @@ let crearUsuario = async (usuario) => {
         }
     } catch (error) {
         console.log(error);
-        throw new Error('Ocurrio un error desde el modelo: Error en la creacion de usuario')
+        throw new Error(error.message);
     }
 }
 
