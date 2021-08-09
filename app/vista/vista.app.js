@@ -1,5 +1,5 @@
 // Importación de modulos necesarios a utilizar
-// const controladorCategorias = require('../controlador/controlador.categorias')
+const controladorProductos = require('../controlador/controlador.productos.js')
 
 // Exportar los modulos
 module.exports = (app) => {
@@ -73,13 +73,36 @@ module.exports = (app) => {
     
     app.get('/administrator', async(req, res) =>{
         try {
-            res.render('administrator')
+           const producto = [{
+                id_producto:"",
+                nombre_producto:"",
+                precio:"",
+                url_imagen:"",
+                descripcion:"",
+                stock: "",
+                id_categoria:"",
+                Fecha_Registro: "",
+                Fecha_Actualizacion:""
+            }] 
+            res.render('administrator', {result: producto} )
         } catch (error) {
             console.log('Error al renderizar la página');
             res.status(400).json(error.message);
         }
     })    
    
+    app.get('admin/productos/categoria:idcategoria', async (req, res) => {
+        try {
+        
+        idcategoria = req.params.idcategoria;
+        let resultado = await controladorProductos.listarProductos(idcategoria);
+        let producto = resultado.producto
+        res.render("administrator", {result: producto})  
+        } catch (err) {
+        console.log(err.message)
+        res.status(500).json({ message: "Error en el servidor", error: err.message})
+        }
+    });
 }
 
     

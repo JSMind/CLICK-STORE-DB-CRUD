@@ -5,9 +5,11 @@ const controladorProductos = require('../controlador/controlador.productos')
 module.exports = (app) => {
   app.get('/productos/categoria:idcategoria', async (req, res) => {
     try {
+      
       idcategoria = req.params.idcategoria;
       let resultado = await controladorProductos.listarProductos(idcategoria);
       res.status(200).json({ message: "Datos recuperados exitosamente", resultado})
+
     } catch (err) {
       console.log(err.message)
       res.status(500).json({ message: "Error en el servidor", error: err.message})
