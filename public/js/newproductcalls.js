@@ -22,9 +22,12 @@ let altaproducto = async(producto) =>{
 
 let obtenerproductos = async (idcategoria) =>{ 
     try{
+        console.log("entro a la llamada")
+        console.log(idcategoria)
         let respuesta = await fetch("http://localhost:3000/admin/productos/categoria"+idcategoria)
-            productos = respuesta.json()
-        return productos
+        
+        //     productos = respuesta.json()
+        // return productos
     }catch(error){
         console.log(error)
         throw new Error ('Error en la llamada para mostrar los productos')

@@ -6,7 +6,7 @@ module.exports.obtenerProductos = async (idcategoria) => {
   try {
     let resultado = await Productos.findAll({where: {id_categoria: idcategoria }});
     // let resultado = await sequelize.query(`SELECT * FROM Productos WHERE id_categoria='${idcategoria}'`)
-    console.log(resultado)
+    // console.log(resultado)
     return resultado
   } catch (err) {
     console.log(error)

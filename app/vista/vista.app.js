@@ -91,13 +91,20 @@ module.exports = (app) => {
         }
     })    
    
-    app.get('admin/productos/categoria:idcategoria', async (req, res) => {
+    app.get('/admin/productos/categoria:idcategoria', async (req, res) => {
         try {
+            console.log("Entro en Vista")   
+            
+            idcategoria = req.params.idcategoria;
+            console.log(idcategoria)
+            let producto = await controladorProductos.listarProductos(idcategoria);
+            // let producto = response.resultado
+            console.log("DATOS RECUPERADOS")
+            console.log(producto)
+        // res.status(200).json({ message: "Datos recuperados exitosamente", response})
+            res.render('administrator', {result: producto})
+            console.log("ya se renderizo")  
         
-        idcategoria = req.params.idcategoria;
-        let resultado = await controladorProductos.listarProductos(idcategoria);
-        let producto = resultado.producto
-        res.render("administrator", {result: producto})  
         } catch (err) {
         console.log(err.message)
         res.status(500).json({ message: "Error en el servidor", error: err.message})
