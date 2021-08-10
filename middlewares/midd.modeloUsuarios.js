@@ -3,12 +3,12 @@ const Joi = require('joi');
 
 // Exportar los modulos
 module.exports = {
-    modeloLogin: Joi.object().keys({
+    modeloLogin: Joi.object().keys({                                        //Validaciones de los datos ingresados por el usuario para inicio de sesion
         correo: Joi.string().email().max(40).required(),
         contrasena: Joi.string().regex(/^[a-zA-Z0-9]{8,15}$/).min(8).required()
     }).with('correo', 'contrasena'),
 
-    modeloRegistro: Joi.object().keys({
+    modeloRegistro: Joi.object().keys({                                     //Validaciones de los datos ingresado por el usuario para el registro
         nombres: Joi.string().min(4).max(50).required(),
         apellidos: Joi.string().min(4).max(50).required(),
         correo: Joi.string().email().max(40).required(),

@@ -11,10 +11,11 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-    
-  
 </head>
+<!-- Pagina para mostrar los Productos Locales -->
+
 <body style="background-color: #35cf7059;" >
+    <!-- Barra Navegante -->
     <header>
       <nav class="navbar navbar-expand-md navbar-dark  navbar-light" style="background-color: #07a042b7;">
         <div class="container-fluid">
@@ -35,9 +36,6 @@
                   CATEGORIES
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown2" style="background-color: #07a042b7;">
-                  <% /* %>   <% categorias.forEach(function(categoria){ %>   
-                   <%= categoria.nombre_categoria %>   
-                     <%  }) %>  <% */ %>
                   <template id = "categorias">
                     <li><a class="dropdown-item btn-categoria" href="/product"></a></li>
                   </template>
@@ -58,13 +56,13 @@
         </div>
       </nav>
     </header>
-
+    <!-- Contenedor donde se iran enlistando los productos -->
     <div class="container">
         <h1>PRODUCTS</h1>
         <hr>
         <div class="row" id="items"> </div>
     </div>
-
+      <!-- Template que se utiliza para generar  el  DOM de la pagina mostrando los productos -->
     <template id="template-card">
         <ul>
         <div class="col-12 mb-2">
@@ -79,7 +77,7 @@
         </div>
       </ul>
       </template> 
-      
+      <!-- Footer -->
       <footer class="container">
         <p class="float-end"><a href="#">Back to top</a></p>
         <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
@@ -87,9 +85,7 @@
       
       <script src="/js/home.js"></script>
       <script src="/js/product.js"> </script>
-      <script src="/js/bootstrap.bundle.min.js"></script>
-
-      
+      <script src="/js/bootstrap.bundle.min.js"></script>     
 
 </body>
 </html>

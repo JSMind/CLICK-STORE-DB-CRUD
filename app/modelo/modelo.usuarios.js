@@ -3,7 +3,7 @@ const Usuarios = require('../../db/db.modelo.usuarios');
 
 // Exportar los modulos
 
-let inspeccionarUsuario = async(usuario) => {
+let inspeccionarUsuario = async(usuario) => {                                    //Metodo de consulta para validar que los datos de acceso del usuario esten registrados en la base de datos 
     try {
         let existeUsuario = await Usuarios.findOne({where: {correo: `${usuario.correo}`}})
         if (existeUsuario != null){
@@ -22,7 +22,7 @@ let inspeccionarUsuario = async(usuario) => {
     }
 }
 
-let consultaUsuarios = async() => {
+let consultaUsuarios = async() => {                                                //Metodo de consulta para enlistar todos los usuarios registrados en la base de datos
     try {
         let consulta = await Usuarios.findAll();
         return consulta;
@@ -32,7 +32,7 @@ let consultaUsuarios = async() => {
     }
 }
 
-let crearUsuario = async (usuario) => {
+let crearUsuario = async (usuario) => {                                             //Metodo de consulta para registrar un usuario por primera vez en la base de datos
     try {
         let existeUsuario = await Usuarios.findOne({where: {correo: `${usuario.correo}`}})
         if (existeUsuario == null) {
@@ -56,7 +56,7 @@ let crearUsuario = async (usuario) => {
     }
 }
 
-let eliminarUsuario = async (idUsuario) => {
+let eliminarUsuario = async (idUsuario) => {                                          //Metodo de consulta para eliminar un usuario de forma permanente de la base de datos
     try {
         let borrarUsuario = await Usuarios.destroy({where: {id_usuario: `${idUsuario}`}})
     } catch (error) {

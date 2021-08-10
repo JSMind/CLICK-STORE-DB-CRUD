@@ -12,10 +12,8 @@
     <link href="/css/carousel.css" rel="stylesheet"> <!-- Custom styles for this template -->
 
   </head>
-<body>
-  
-  
-    
+<body>  
+  <!-- Barra Navegante  -->
   <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-light" style="background-color: #07a042b7;">
         <div class="container-fluid">
@@ -36,15 +34,11 @@
                   CATEGORIES
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown2" style="background-color: #07a042b7;">
-                  <% /* %>   <% categorias.forEach(function(categoria){ %>   
-                   <%= categoria.nombre_categoria %>   
-                     <%  }) %>  <% */ %>
                   <template id = "categorias">
                     <li><a class="dropdown-item btn-categoria" href="/product"></a></li>
                   </template>
                 </ul>
               </li>
-
               <li class="nav-item">
                 <a class="nav-link" href="/contact">CONTACT</a>
               </li>
@@ -57,9 +51,6 @@
                 <template id="admin">
                   
                 </template>
-              <!-- <div id="trend">
-                <a  href="/product"> <button class="btn btn-warning"  type="button">TREND</button></a>
-              </div>   -->
             </ul>
               <div>
                 <a href="/cart"><button class="btn btn-primary"  type="button">SHOPPING CART</button></a>
@@ -69,11 +60,8 @@
         </div>
       </nav>
   </header>
-
   <main>
-  <!-- CARRUSEL -->
-
-    
+  <!-- CARRUSEL -->  
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -121,17 +109,16 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-
+  <!-- Pagina Principal -->
   </main>
-  <!-- FOOTER -->
-  <footer class="container">
-    <p class="float-end"><a href="#">Back to top</a></p>
-    <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-  </footer>
+    <!-- FOOTER -->
+    <footer class="container">
+      <p class="float-end"><a href="#">Back to top</a></p>
+      <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
 
-    <script src="/js/home.js"></script>
-    <script src="/js/bootstrap.bundle.min.js"></script>
-  
+      <script src="/js/home.js"></script>
+      <script src="/js/bootstrap.bundle.min.js"></script> 
 </body>
   
 </html>

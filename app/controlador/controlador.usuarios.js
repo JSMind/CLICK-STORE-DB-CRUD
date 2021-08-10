@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 const modeloUsuarios = require('../modelo/modelo.usuarios');
 
 // Exportar los modulos
-let generarToken = async(usuario) => {
+let generarToken = async(usuario) => {                              //Controlador que genera el token
     try {
         const token = jwt.sign({usuario}, process.env.SECRET_KEY);  //Tiempo máximo de validez de 15 min
         return token;
@@ -13,7 +13,7 @@ let generarToken = async(usuario) => {
     }
 }
 
-let verificarUsuario = async(token) =>{
+let verificarUsuario = async(token) =>{                             //Controlador que verifica el token con la Secret Key 
     try {
         const validacion = jwt.verify(token, process.env.SECRET_KEY);
         if(validacion){
@@ -28,7 +28,7 @@ let verificarUsuario = async(token) =>{
     }
 }
 
-let inspeccionarUsuario = async(usuario) =>{
+let inspeccionarUsuario = async(usuario) =>{                           // Controlador que conecta con el metodo insepeccionarUsuario para realizar la validacion de los datos de acceso
     try {
         let usuarioValido = await modeloUsuarios.inspeccionarUsuario(usuario);
         if (usuarioValido){
@@ -42,7 +42,7 @@ let inspeccionarUsuario = async(usuario) =>{
     }
 }
 
-let listarUsuarios = async () => {
+let listarUsuarios = async () => {                                      //Controlador que conecta con el metodo consultaUSuarios para listar todos los usuarios
     try {
         let consultaUsuarios = await modeloUsuarios.consultaUsuarios();
         return consultaUsuarios;
@@ -52,7 +52,7 @@ let listarUsuarios = async () => {
     }
 }
 
-let crearUsuario = async (usuario) => {
+let crearUsuario = async (usuario) => {                                  //Controlador que conecta con el metodo crearUsuarios para la creacion de un Usuario
     try {
         let nuevoUsuario = await modeloUsuarios.crearUsuario(usuario)
         return nuevoUsuario;
@@ -62,7 +62,7 @@ let crearUsuario = async (usuario) => {
     }
 }
 
-let eliminarUsuario = async (idUsuario) => {
+let eliminarUsuario = async (idUsuario) => {                            //Controldor que conecta con el metodo eliminarUsuario para la eliminacion de un Usuario 
     try {
         let borrarUsuario = await modeloUsuarios.eliminarUsuario(idUsuario);
     } catch (error) {

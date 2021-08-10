@@ -1,22 +1,18 @@
 // Importación de modulos necesarios a utilizar
-// const controladorProductos = require('../controlador/controlador.productos.js')
 
 // Exportar los modulos
 module.exports = (app) => {
 
-    app.get('/home', async(req,res) => {
-        try {
-            // let resultado = await controladorCategorias.listarCategorias();
-            // res.render('inicio', {categorias : resultado})   
+    app.get('/home', async(req,res) => {                            //Vista que renderiza la pagina Home
+        try { 
             res.render('home')  
-
         } catch (error) {
             console.log('Error al renderizar la pagina principal');
             res.status(400).json(error.message);
         }
     });
 
-    app.get('/signup', async(req, res) =>{
+    app.get('/signup', async(req, res) =>{                          //Vista que renderiza la pagina SignUp
         try {
             res.render('signup')
         } catch (error) {
@@ -25,7 +21,7 @@ module.exports = (app) => {
         }
     });
 
-    app.get('/login', async(req, res) =>{
+    app.get('/login', async(req, res) =>{                            //Vista que renderiza la pagina Login
         try {
             res.render('login')
         } catch (error) {
@@ -34,7 +30,7 @@ module.exports = (app) => {
         }
     });
 
-    app.get('/product', async(req,res) => {
+    app.get('/product', async(req,res) => {                           //Vista que renderiza la pagina que muestra los Productos
         try {
             res.render('product')  
 
@@ -44,7 +40,7 @@ module.exports = (app) => {
         }
     });
 
-    app.get('/cart', async(req, res) =>{
+    app.get('/cart', async(req, res) =>{                               //Vista que renderiza la pagina que contiene el carrito de compras y datos de Domicilio
         try {
             res.render('cart')
         } catch (error) {
@@ -53,7 +49,7 @@ module.exports = (app) => {
         }
     });
 
-    app.get('/contact', async(req, res) =>{
+    app.get('/contact', async(req, res) =>{                            //Vista que renderiza la pagina contacto
         try {
             res.render('contact')
         } catch (error) {
@@ -62,7 +58,7 @@ module.exports = (app) => {
         }
     });
 
-    app.get('/congratulations', async(req, res) =>{
+    app.get('/congratulations', async(req, res) =>{                     //Vista que renderiza la pagina de Agradecimientos
         try {
             res.render('congratulations')
         } catch (error) {
@@ -71,7 +67,7 @@ module.exports = (app) => {
         }
     });
     
-    app.get('/administrator', async(req, res) =>{
+    app.get('/administrator', async(req, res) =>{                        //Vista que renderiza la pagina de Administrador
         try {      
             res.render('administrator')
         } catch (error) {

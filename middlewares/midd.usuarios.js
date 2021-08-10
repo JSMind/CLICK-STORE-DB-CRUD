@@ -12,7 +12,8 @@ const limiteConsultas = rateLimit({
 })
 
 // Middleware para validaciones de acceso
-let usuarioValido = async (req,res,next) =>{
+
+let usuarioValido = async (req,res,next) =>{                                    //Metodo para la validacion del usuario mediante el token
     try {
         if (req.headers.authorization != undefined){
             const token = req.headers.authorization.split(' ')[1];
@@ -29,7 +30,7 @@ let usuarioValido = async (req,res,next) =>{
     }
 }
 
-let revisarLogin = async (req,res,next) =>{
+let revisarLogin = async (req,res,next) =>{                                       //Metodo para validar correo y contrasena para inicio de sesion
     try {
         await Joi.attempt(req.body, modeloLogin, 'Alguno de los datos no es correcto')
         return next()
@@ -38,7 +39,7 @@ let revisarLogin = async (req,res,next) =>{
     }
 }
 
-let revisarRegistro = async (req,res,next) =>{
+let revisarRegistro = async (req,res,next) =>{                                     //Metodo para validar los datos de Registro del Usuario
     try {
         await Joi.attempt(req.body, modeloRegistro, 'Alguno de los datos no es correcto')
         return next()

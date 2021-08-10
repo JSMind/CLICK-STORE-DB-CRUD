@@ -1,7 +1,7 @@
 
 const modeloCategorias = require('../modelo/modelo.categorias');
 
-module.exports.listarCategorias = async ()=> {
+module.exports.listarCategorias = async ()=> {                          //Controlador que conecta con el metodo de obtenerCategorias del modelo respectivo
     try {
         const resultado = await modeloCategorias.obtenerCategorias();
         return resultado;

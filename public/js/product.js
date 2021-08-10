@@ -1,14 +1,14 @@
 
-class Producto{                                     //Definimos nuestra clase Producto
+class Producto{                                             //Definimos nuestra clase Producto
 
     
-    constructor(formatobjeto){                      //Definimos el constructor
+    constructor(formatobjeto){                              //Definimos el constructor
         this.data=formatobjeto
        
     }
       
 
-    mostrarProductos() {                            //Metodo que imprimira el DOM de producto.html 
+    mostrarProductos() {                                    //Metodo que imprimira el DOM de la pagina Product
         const items = document.getElementById('items')
         const templateCard = document.getElementById('template-card').content
         const fragment = document.createDocumentFragment()
@@ -26,23 +26,23 @@ class Producto{                                     //Definimos nuestra clase Pr
         items.appendChild(fragment)
     }
     
-    productoseleccionado(numeroelemento){                           //Metodo que trae del constructor el producto seleccionado por el usuario
-                                                                    // y agrega al carrito como un producto o altera la cantidad del producto en caso de que ya exita
+    productoseleccionado(numeroelemento){                   //Metodo que trae del constructor el producto seleccionado por el usuario
+                                                            
         let producto = this.data.resultado[numeroelemento]
         
-        if(carrito.length==0){
+        if(carrito.length==0){                              //Si el carrito esta vacio, se agrega el atributo "cantidad=1" al objeto "producto"                   
             producto.cantidad=1
-            carrito.push(producto)
+            carrito.push(producto)                          //Se agrega el producto al carrito
         } else {
-            let existe = 0;
+            let existe = 0;                                 //Si el carrito no esta vacio, se recorre el carrito para verificar si el nuevo producto seleccionado por el usuario se encuentra en el carrito, y alterar su atributo cantidad en +1
             carrito.forEach(elemento => {
                 if (producto.id_producto === elemento.id_producto){
                     elemento.cantidad += 1;
-                    existe = 1;
+                    existe = 1;                             //Si existe el producto en el carrito, la variable existe toma el valor de 1
                 }  
             })
 
-            if(existe == 0){
+            if(existe == 0){                                //Si no existe el producto en el carrito, se agrega el producto nuevo al carrito, ademas se agrega el atributo "cantidad=1" en el objeto "producto"
                 producto.cantidad=1
                 carrito.push(producto)
             }   
@@ -53,7 +53,7 @@ class Producto{                                     //Definimos nuestra clase Pr
 }
 
 
-async function obtenerProductos(url){                   //Metodo que consumira de nuestra API propia los productos relacionados a la subcategoria que selecciono el usuario
+async function obtenerProductos(url){                        //Metodo que consumira del servidor los productos relacionados a la categoria seleccionada por el usuario
     let Data
     await fetch(url)                                   
             .then(response => response.json())       
@@ -68,14 +68,12 @@ async function obtenerProductos(url){                   //Metodo que consumira d
         
     
     const botonAgregarProducto = document.querySelector(".container") 
-    botonAgregarProducto.addEventListener("click", e => {                     //Evento que detecta EL PRODUCTO SELECCIONADO POR el usuario
+    botonAgregarProducto.addEventListener("click", e => {       //Evento que detecta EL PRODUCTO SELECCIONADO POR el usuario
         
         if (e.target.classList.contains("btn-producto")){
 
             let numeroelemento = e.target.dataset.id
-            Data.productoseleccionado(numeroelemento)
-            
-            console.log(carrito)                                       //Se imprime en consola el arreglo carrito con los Productos(objetos) seleccionados
+            Data.productoseleccionado(numeroelemento)           //Se invoca el metodo "productoseleccionado" del objeto Data definido en la clase Producto
             localStorage.setItem('carrito', JSON.stringify(carrito))   //Guardamos en localstorage el arreglo carrito
         }  
     })
@@ -84,19 +82,13 @@ async function obtenerProductos(url){                   //Metodo que consumira d
 }  
 
 
-
-
-
-
-
-
-let carrito = []                                                    //Areglo que contendra los objetos Produtos
+let carrito = []                                                   //Areglo que contendra los objetos Produtos
 
 
 if (localStorage.getItem('carrito')) {
     carrito = JSON.parse(localStorage.getItem('carrito'))
 }
-const idcategoria =localStorage.getItem('idcategoria');           //Recuperamos la variable "idsubcategoria" del localstorage
+const idcategoria =localStorage.getItem('idcategoria');            //Recuperamos la variable "idcategoria" del localstorage
 
 obtenerProductos("http://localhost:3000/productos/categoria"+idcategoria)  //Aqui se inicializa el codigo
 

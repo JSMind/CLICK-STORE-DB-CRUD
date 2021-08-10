@@ -1,12 +1,11 @@
 // Importar los modulos necesarios
 const controladorUsuarios = require('../controlador/controlador.usuarios');
-const middUsuarios = require('../../middlewares/midd.usuarios');
 
 // Construir y exportar los modulos
 module.exports = async (app) => {
 
     // Endpoints a los que solo podran acceder los administradores
-    app.get('/usuarios', async (req,res) => {
+    app.get('/usuarios', async (req,res) => {                                          //Metodo para listar todos los usarios registrados en la base de datos
         try {
             let consultaUsuarios = await controladorUsuarios.listarUsuarios();
             res.status(200).json({message: 'Consulta exitosa', consultaUsuarios});
@@ -16,7 +15,7 @@ module.exports = async (app) => {
         }
     })
 
-    app.delete('/usuarios/:idUsuario', async (req,res) => {
+    app.delete('/usuarios/:idUsuario', async (req,res) => {                             //Metdo para eliminar permanentemente a un usario de la base de datos mediante el Id del Usuario
         let idUsuario = req.params.idUsuario;
         try {
             let eliminarUsuario = await controladorUsuarios.eliminarUsuario(idUsuario);
@@ -27,8 +26,9 @@ module.exports = async (app) => {
         }
     })
 
-    // Enpoints a los que podean acceder los usuarios
-    app.post('/usuario/registro', async(req,res) => {
+    // Enpoints a los que podran acceder los usuarios normales
+    
+    app.post('/usuario/registro', async(req,res) => {                                     //Metodo que permite registrarse el usuario
         let usuario = req.body
         try {
             let nuevoUsuario = await controladorUsuarios.crearUsuario(usuario)
@@ -39,7 +39,7 @@ module.exports = async (app) => {
         }
     })
 
-    app.post('/usuario/login', async(req,res) => {
+    app.post('/usuario/login', async(req,res) => {                                          //Metodo que permite validar los datos de acceso del usuario y posteriormente generar un token
         let usuario = req.body
         try {
             let inspeccionarUsuario = await controladorUsuarios.inspeccionarUsuario(usuario);

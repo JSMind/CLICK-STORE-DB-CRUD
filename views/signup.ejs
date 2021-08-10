@@ -1,10 +1,13 @@
-<%- include('template/head', {tituloWeb: 'SINGUP'}); %>
+<!-- Uso de ejs para el head de forma dinamica -->
+<%- include('template/head', {tituloWeb: 'SINGUP'}); %>  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
+<!-- Pagina Registro de Usuarios -->
 
-  <header>
+<body>
+    <!-- Barra Navegante -->
+    <header>
         <nav class="navbar navbar-expand-md navbar-dark  navbar-light" style="background-color: #07a042b7;">
           <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -19,21 +22,19 @@
                   <a class="nav-link active" aria-current="page" href="/home">CLICK STORE</a>
                 </li>
 
-  
                 <li class="nav-item">
                   <a class="nav-link" href="/contact">CONTACT</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/login">LOGIN</a>
-                </li>
-                     
-              </ul>
-                
-            </div>
-            
+                </li>      
+              
+              </ul>    
+            </div> 
           </div>
         </nav>
     </header>
+
     <div class="container">
         <main>
             <div class="py-5 text-center">
@@ -41,7 +42,7 @@
                 <h2>EN CLICK STORE TE DAMOS LA BIENVENIDA</h2>
                 <p class="lead">A continuación te solicitaremos algunos datos para continuar con tu registro, solo te tomara unos minutos.</p>
             </div>
-
+    <!-- Formulario para el registro de Usuario -->
             <div class="col-md-12 col-lg-12">
                 <form class="needs-validation" novalidate>
                     <div class="row g-3">
@@ -102,8 +103,12 @@
                 </form>
             </div>
         </main>
+
     </div></br>
+    <!-- Inclusion del footer mediante ejs -->
     <%- include('template/footer_1') %>
+
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/js/formvalidation.js"></script>
     <script src="/js/signupvalidation.js"></script>

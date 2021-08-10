@@ -2,11 +2,9 @@ const sequelize = require('../../db/db.conection');
 const Productos = require('../../db/db.modelo.productos')
 
 
-module.exports.obtenerProductos = async (idcategoria) => {
+module.exports.obtenerProductos = async (idcategoria) => {                         //Metodo de consulta para obtener los Productos Locales de la base de datos
   try {
     let resultado = await Productos.findAll({where: {id_categoria: idcategoria }});
-    // let resultado = await sequelize.query(`SELECT * FROM Productos WHERE id_categoria='${idcategoria}'`)
-    // console.log(resultado)
     return resultado
   } catch (err) {
     console.log(error)
@@ -14,7 +12,7 @@ module.exports.obtenerProductos = async (idcategoria) => {
   }
 }
 
-module.exports.altaProducto = async (productos) => {
+module.exports.altaProducto = async (productos) => {                                //Metodo de consulta para registrar un producto local en la base de datos
   try {
     let newProducto = await Productos.create({
      id_producto: productos.id_producto,
@@ -33,7 +31,7 @@ module.exports.altaProducto = async (productos) => {
   }
 }
 
-module.exports.bajaProducto = async (IdProducto) => {
+module.exports.bajaProducto = async (IdProducto) => {                               //Metodo de consulta para eliminar un producto local en la base de datos
   try{
     let bajaProducto = await Productos.destroy({where: {id_producto:`${IdProducto}`}})
     console.log (bajaProducto)
@@ -45,7 +43,7 @@ module.exports.bajaProducto = async (IdProducto) => {
   }
 }  
 
-  module.exports.actualizarProducto = async (producto) => {
+  module.exports.actualizarProducto = async (producto) => {                        //Metodo de consulta para actualizar los datos de un producto local en la base de datos
   try{
     
     let resultado = await sequelize.query(`UPDATE Productos SET  nombre_producto='${producto.title}',

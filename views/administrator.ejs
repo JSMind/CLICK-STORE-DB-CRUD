@@ -9,58 +9,19 @@
     <title>CLICK STORE</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
     <link href="/css/bootstrap.min.css" rel="stylesheet">  <!-- Bootstrap core CSS -->
-
   </head>
   
-
+<!-- Pagina Administrador para Productos Locales -->
 <body class="bg-light">
-    <!-- <nav class="navbar navbar-expand-md navbar-dark  navbar-light" style="background-color: #07a042b7;">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="/img/logo_white_large.png" width="60" height="30" class="d-inline-block align-top" alt="Bootstrap" loading="lazy">
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent2">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="inicio.html">CLICK STORE</a>
-              </li>
-
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  CATEGORIES
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown2" style="background-color: #07a042b7;">
-                  <template id = "categorias">
-                    <li><a class="dropdown-item btn-categoria" href="./subcategorias"></a></li>
-                  </template>
-                </ul>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="./contact.html">CONTACT</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./login.html">LOGIN</a>
-              </li>
-              <div>
-                <a href="./tendencia.html"><button class="btn btn-warning"  type="button">SHOES TREND</button></a>
-              </div>  
-            </ul>
-              
-          </div>
-          
-        </div>
-    </nav> -->
-<div class="container">
+    
+  <div class="container">
     <main>     
       <h1 class="text-primary text-center" >¡BIENVENIDO ADMINISTRADOR</h1>
       <br>
       <br>
       <br>
       <div class="row g-3">
+        
         <!-- Formulario de Alta Producto-->
         <div class="col-md-7 col-lg-8">
           <h4 class="mb-3">ALTA DE PRODUCTOS</h4>
@@ -106,7 +67,6 @@
       </div>
       <button class="btn btn-success btn-lg" id="Alta" type="submit">ALTA PRODUCTO</button>
       <button class="btn btn-warning btn-lg" id="Actualizar" type="submit">ACTUALIZAR PRODUCTO</button>
-
       <br>
 
       <div class="row g-3">
@@ -136,7 +96,8 @@
           </thead>
           <tbody id="items"></tbody>
         </table>
-
+        
+        <!-- Template que se utiliza para mostrar los productos de la Categoria Seleccionado por el Administrador -->
         <template id="templateproductos">
           <tr>
             <th scope="row">Id_Producto</th>
@@ -149,6 +110,7 @@
             <td>FECHA_Actualizacion</td>
           </tr>
         </template>
+      
       </div>  
         <button class="btn btn-info btn-lg" id="listaproductos">LISTAR PRODUCTOS</button>
       <br>
@@ -162,7 +124,7 @@
 
               <div class="col-12">
                 <label for="Id_Producto" class="form-label"> Id Producto</label>
-                <input type="text" class="form-control" id="Id_Producto" placeholder="Ej: MLM673563393" value="" required>
+                <input type="text" class="form-control" id="BajaProducto" placeholder="Ej: MLM673563393" value="" required>
               </div>          
           </form>
         </div>
@@ -172,6 +134,8 @@
       <br>
 
     </main>
+  </div>
+
     <script src="/js/newproductvalidation.js"></script>
     <script src="/js/newproductcalls.js"></script>
     <script src="/js/newproduct.js"></script>

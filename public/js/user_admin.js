@@ -1,20 +1,23 @@
+//En este archivo se contiene la logica para la pagina de Administrador para usuarios
+
+//Se declara las variables globales
 const btnListarUsuarios = document.getElementById('listarUsr');
 const registros = document.getElementById('registros');
 const templateUsuarios = document.getElementById('template-listarUsr').content;
 const fragment = document.createDocumentFragment();
 
-btnListarUsuarios.addEventListener('click', async() =>{
-    let usuarios = await fetch('http://localhost:3000/usuarios',{
+btnListarUsuarios.addEventListener('click', async() =>{                             //Boton que detectara el evento para listar los usuarios
+    let usuarios = await fetch('http://localhost:3000/usuarios',{                   //Se invoca el metodo de la vista correspondiente del servidor para listar todos los usuarios registrados en la base de datos
         method: 'get',
         headers: {
             "Accept": "application/json, text/plain, *,*",
             "Content-Type": "application/json"
         }
     })
-    // console.log(usuarios)
     let listaUsuarios = await usuarios.json();
     console.log(listaUsuarios.consultaUsuarios)
-    listaUsuarios.consultaUsuarios.forEach(usuario => {
+
+    listaUsuarios.consultaUsuarios.forEach(usuario => {                             //Se genera el DOM de la pagina mostrando los usuarios registrados en la base de datos
         templateUsuarios.querySelector('th').textContent = usuario.id_usuario
         templateUsuarios.querySelectorAll('td')[0].textContent = usuario.nombres
         templateUsuarios.querySelectorAll('td')[1].textContent = usuario.apellidos

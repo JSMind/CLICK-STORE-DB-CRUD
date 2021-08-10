@@ -1,23 +1,8 @@
-// Declarar la clase para trabajar con localStorage
-class Usuarios{
-    constructor (correo,contrasena){
-        this.correo = correo;
-        this.contrasena = contrasena;
-        // this.token = '';
-    }
+//En este archivo se encuentran las llamadas al servidor para registrarse como usuario nuevo e iniciar sesion
 
-    static async guardarUsuario(usuario){
-        localStorage.setItem('datosUsuario', JSON.stringify(usuario));
-    }
 
-    static async recuperarUsuario(){
-        let usuario = await JSON.parse(localStorage.getItem('datosUsuario'));
-        return usuario;
-    }
-}
+let registroUsuario = async(usuario) => {                                           // Función para crear un nuevo usuario y almacenarlo a la base de datos
 
-// Función para crear un nuevo usuario y almacenarlo a la base de datos
-let registroUsuario = async(usuario) => {
     try {
         let nuevoRegistro = await fetch('http://localhost:3000/usuario/registro',{
             method: 'post',
@@ -34,8 +19,8 @@ let registroUsuario = async(usuario) => {
     }
 }
 
-// Función para realizar un login
-let nuevoIngreso = async (usuario) =>{
+
+let nuevoIngreso = async (usuario) =>{                                              // Función para realizar un login
     try {
         let iniciarSesion = await fetch('http://localhost:3000/usuario/login',{
             method: 'post',

@@ -1,9 +1,9 @@
-class Categoria{                            //Definimos nuestra clase Categoria
+class Categoria{                                                    //Definimos nuestra clase Categoria
     
-    constructor(datos){                     //Definimos el constructor
+    constructor(datos){                                             //Definimos el constructor
         this.datos = datos;
     };
-    mostrarCategoria(){                      //Metodo que imprimira el DOM de index.html 
+    mostrarCategoria(){                                             //Metodo que imprimira el DOM de la pagina Home 
         let lista = document.querySelector(".dropdown-menu");
         let fragment = document.createDocumentFragment();
         let tempCategoria = document.querySelector("#categorias").content;
@@ -18,7 +18,7 @@ class Categoria{                            //Definimos nuestra clase Categoria
         lista.appendChild(fragment);
     };
 
-    static obtenerCategorias(url){          //Metodo que consumira de nuestra API propia las categorias
+    static obtenerCategorias(url){                                  //Metodo que consumira las Categorias propias del servidor 
         let Data
         fetch(url)                                   
             .then(response => response.json())       
@@ -36,7 +36,7 @@ class Categoria{                            //Definimos nuestra clase Categoria
 }
 
 document.addEventListener("DOMContentLoaded", e => 
-Categoria.obtenerCategorias('http://localhost:3000/categorias'));             //Aqui se inicializa el codigo
+Categoria.obtenerCategorias('http://localhost:3000/categorias'));   //Aqui se inicializa el codigo
 
 const botonCategoria = document.querySelector(".navbar-collapse")  
 botonCategoria.addEventListener("click", e => {                     //Evento que detecta la seleccion de la categoria del usuario
@@ -47,10 +47,10 @@ botonCategoria.addEventListener("click", e => {                     //Evento que
 })
 
 const botonTrend = document.getElementById("trend")  
-botonTrend.addEventListener("click", e => {                     //Evento que detecta la seleccion de la categoria del usuario
+botonTrend.addEventListener("click", e => {                          //Evento que detecta la seleccion de la categoria del usuario
     if (e.target.classList.contains("btn-warning")){
         const idcategoria="CSMLM100" 
-        localStorage.setItem('idcategoria', idcategoria)            //Se guarda la variable "idcategoria" en el localstorage
+        localStorage.setItem('idcategoria', idcategoria)             //Se guarda la variable "idcategoria" en el localstorage
     }  
 })
 

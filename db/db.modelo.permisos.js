@@ -2,7 +2,7 @@
 const {DataTypes, Model } = require('sequelize');
 const sequelize = require('./db.conection')
 
-//Defino los modelos de DB que voy a utilizar
+// Datos que contendra la tabla Permisos , para definir el usuario tipo administrador y usario normal
 
 const Permisos = sequelize.define('Permisos' , {
     tipo_usuario: {

@@ -1,9 +1,9 @@
 // Importar los modulos necesarios a utilizar
 const controladorProductos = require('../controlador/controlador.productos')
 
-// Exportar modulos-Creacion de los metodos get y post.
+// Exportar modulos - Creacion de los metodos get, post, update y delete para los productos locales
 module.exports = (app) => {
-  app.get('/productos/categoria:idcategoria', async (req, res) => {
+  app.get('/productos/categoria:idcategoria', async (req, res) => {                   //Metodo para obtener los productos locales por categoria
     try {
       
       idcategoria = req.params.idcategoria;
@@ -16,7 +16,7 @@ module.exports = (app) => {
     }
   });
 
-  app.post('/productos/create', async (req, res) => {
+  app.post('/productos/create', async (req, res) => {                                   //Metodo para crear los productos locales por categoria
     try {
       let productos = req.body
       console.log(productos)
@@ -28,9 +28,10 @@ module.exports = (app) => {
     }
   });
 
-  app.delete('/productos/delete/:IdProducto', async (req,res) => {
+  app.delete('/productos/delete/:IdProducto', async (req,res) => {                       //Metodo para eliminar permanentemente los productos locales por Id del producto
     let Id_Producto = req.params.IdProducto;
     try {
+        console.log("entro al servidor", Id_Producto)
         const resultado = await controladorProductos.eliminarProducto(Id_Producto);
         res.status(200).json({message: 'El Producto se Elimino correctamente de la base de datos'});
     } catch (error) {
@@ -39,7 +40,7 @@ module.exports = (app) => {
     }
 });
 
-app.post('/productos/update', async (req,res) => {
+app.post('/productos/update', async (req,res) => {                                          //Metodo para actualizar datos de los productos locales
   let producto = req.body;
   try {
       const actualizarProducto = await controladorProductos.actualizarProducto(producto);

@@ -3,7 +3,7 @@ const {DataTypes, Model } = require('sequelize');
 const sequelize = require('./db.conection');
 const Categorias = require ('./db.modelo.categorias');
 
-//Defino los modelos de DB que voy a utilizar
+//Datos que contendra la tabla Productos
 
 const Productos = sequelize.define('Productos' , {
     id_producto : {
@@ -42,7 +42,7 @@ const Productos = sequelize.define('Productos' , {
     updatedAt: 'Fecha_Actualizacion'
 });
 
-Productos.belongsTo(Categorias, {foreignKey: 'id_categoria'});
+Productos.belongsTo(Categorias, {foreignKey: 'id_categoria'}); //Especificacion de foreignKey que asociara la tabla Productos con la Tabla Categorias
 
 
 module.exports = Productos

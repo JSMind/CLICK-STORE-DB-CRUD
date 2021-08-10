@@ -3,7 +3,7 @@ const {DataTypes, Model} = require('sequelize');
 const sequelize = require('./db.conection');
 const Permisos = require('./db.modelo.permisos');
 
-// Definir el modelo de la tabla para la DB
+//Datos que contendra la tabla Usuarios
 const Usuarios = sequelize.define('Usuarios',{
     id_usuario:{
         primaryKey: true,
@@ -48,7 +48,8 @@ const Usuarios = sequelize.define('Usuarios',{
     createdAt: 'fecha_registro',
     updatedAt: 'fecha_actualizacion'
 });
-Usuarios.belongsTo(Permisos,{foreignKey: 'tipo_usuario'});
+
+Usuarios.belongsTo(Permisos,{foreignKey: 'tipo_usuario'});  //Especificacion de foreignKey que asociara la tabla Usuarios con la Tabla Permisos
 
 // Exportar el modelo
 module.exports = Usuarios

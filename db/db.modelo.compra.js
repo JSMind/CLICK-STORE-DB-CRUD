@@ -4,7 +4,7 @@ const sequelize = require('./db.conection')
 const Usuarios = require ('./db.modelo.usuarios')
 const Productos = require ('./db.modelo.productos')
 
-//Defino los modelos de DB que voy a utilizar
+//Datos que contendra la tabla Compras
 
 const Compras = sequelize.define('Compras' , {
     Id_Compra: {
@@ -33,8 +33,8 @@ const Compras = sequelize.define('Compras' , {
     timestamps: true
 })
 
-Compras.belongsTo(Usuarios, {foreignKey: 'Id_Usuario'}); 
-Compras.belongsTo(Productos, {foreignKey: 'Id_Producto'}); 
+Compras.belongsTo(Usuarios, {foreignKey: 'Id_Usuario'});  //Especificacion de foreignKey que asociara la tabla Compras con la Tabla Usuarios.
+Compras.belongsTo(Productos, {foreignKey: 'Id_Producto'}); //Especificacion de foreignKey que asociara la tabla Compras con la Tabla Productos.
 
 
 module.exports = Productos

@@ -1,8 +1,9 @@
 //Importo los modulos necesarios
 const {DataTypes, Model } = require('sequelize');
 const sequelize = require('./db.conection')
+const Usuarios = require ('./db.modelo.usuarios')
 
-// Exportamos los modulos
+// Datos que contendra la tabla Domicilio de entrega del usuario
 const Domicilio = sequelize.define('Domicilio' , {
     Id_usuario: {
         type: DataTypes.INTEGER,
@@ -44,4 +45,4 @@ const Domicilio = sequelize.define('Domicilio' , {
     timestamps: true
 })
 
-Domicilio.belongsTo(Usuarios, {foreignKey: 'Id_usuario'});
+Domicilio.belongsTo(Usuarios, {foreignKey: 'Id_usuario'});         //Especificacion de foreignKey que asociara la tabla Domicilio con la Tabla Usuarios

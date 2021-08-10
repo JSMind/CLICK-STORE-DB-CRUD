@@ -11,7 +11,7 @@ let validarTxt = (texto, tipo) =>{
         throw new Error (error.message)
     }
 }
-
+//Funcion para validar que los campos no sean vacios
 let validarOtros = (datos,tipo) => {
     try {
         if(datos == null || datos == 0){
@@ -24,7 +24,7 @@ let validarOtros = (datos,tipo) => {
         throw new Error (error.message)
     }
 }
-
+//Fncion para validar Contrasena
 let validarContrasena = (contrasena) => {
     try {
         if (contrasena == null || contrasena == 0 || contrasena.length < 8 || /^\s+$/.test(contrasena)) {
@@ -37,7 +37,7 @@ let validarContrasena = (contrasena) => {
         throw new Error (error.message)
     }
 }
-
+//Funcion para validar email
 let validarEmail = (correo) => {
     try {
         

@@ -1,10 +1,9 @@
 // Importar los modulos
 const modeloProductos = require('../modelo/modelo.productos')
 
-//exportar los modulos que vamos a utilizar
+//Exportar los modulos que vamos a utilizar
 module.exports.listarProductos = async (idcategoria)=> {
     try {
-        // const id = JSON.stringify(idcategoria)
         const resultado = await modeloProductos.obtenerProductos(idcategoria)
         return resultado
     }catch (error) {
@@ -34,13 +33,13 @@ module.exports.eliminarProducto = async (Id_Producto) => {
     }
 } 
 
-    module.exports.actualizarProducto = async (producto) => {
-        try{
-            const resultado = await modeloProductos.actualizarProducto(producto)
-            
-        }
-        catch(error){
-            console.log(error)
-            throw new Error ('Desde el controlador paso algo')
-        }
+module.exports.actualizarProducto = async (producto) => {
+    try{
+        const resultado = await modeloProductos.actualizarProducto(producto)
+        
+    }
+    catch(error){
+        console.log(error)
+        throw new Error ('Desde el controlador paso algo')
+    }
 }
