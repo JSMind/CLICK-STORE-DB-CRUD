@@ -1,5 +1,5 @@
 # CLICK-STORE PROYECTO ENTREGA FINAL DEMO
-Para poder acceder al proyecto, es necesario seguir los siguientes pasos:
+Para poder acceder al proyecto, es necesario seguir los siguientes pasos :
 1. Clonar el repositorio con la instrucción:
 
       git clone https://github.com/JSMind/CLICK-STORE-DB-CRUD.git
