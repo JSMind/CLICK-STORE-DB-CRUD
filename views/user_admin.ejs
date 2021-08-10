@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>CLICK STORE</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">  <!-- Bootstrap core CSS -->
+
+  </head>
+  
+
+<body class="bg-light">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-light" style="background-color: #07a042b7;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="/img/logo_white_large.png" width="60" height="30" class="d-inline-block align-top" alt="Bootstrap" loading="lazy">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="inicio.html">CLICK STORE</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  CATEGORIES
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown2" style="background-color: #07a042b7;">
+                  <template id = "categorias">
+                    <li><a class="dropdown-item btn-categoria" href="./subcategorias"></a></li>
+                  </template>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contact.html">CONTACT</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./login.html">LOGIN</a>
+              </li>
+              <div>
+                <a href="./tendencia.html"><button class="btn btn-warning"  type="button">SHOES TREND</button></a>
+              </div>  
+            </ul>
+              
+          </div>
+          
+        </div>
+    </nav>
+<div class="container">
+    <main>
+        <br><br><br>        
+        <div class="col-md-12 col-lg-12">
+        <!-- Listar Productos -->
+        <b><h2 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-primary">Administración de usuarios</span>
+            <!-- <span class="badge bg-secondary rounded-pill">3</span> -->
+        </h2></b>
+        <table class="table">
+            <thead>
+                <tr>
+                  <th scope="col">ID USUARIO</th>
+                  <th scope="col">NOMBRES</th>
+                  <th scope="col">APELLIDOS</th>
+                  <th scope="col">CORREO</th>
+                  <th scope="col">TELEFONO</th>
+                  <th scope="col">FECHA DE NACIMIENTO</th>
+                  <th scope="col">ESTADO</th>
+                  <th scope="col">TIPO DE USUARIO</th>
+                  <th scope="col">FECHA DE REGISTRO</th>
+                  <th scope="col">FECHA DE ACTUALIZACIÓN</th>
+                </tr>
+              </thead>
+          <tbody id="registros"></tbody>
+        </table>
+      </div>  
+      <button class="btn btn-info btn-lg" id="listarUsr">LISTAR USUARIOS</button>
+      <br>
+
+      <template id="template-listarUsr">
+        <tr>
+          <th scope="row">Id usuario</th>
+          <td>Nombres</td>
+          <td>Apellidos</td>
+          <td>Correo</td>
+          <td>Telefono</td>
+          <td>Fecha de nacimiento</td>
+          <td>Estado</td>
+          <td>Tipo de usuario</td>
+          <td>Fecha de registro</td>
+          <td>Fecha de actialización</td>
+        </tr>
+      </template>
+
+    </main>
+
+    <script src="/js/home.js"></script>
+    <script src="/js/user_admin.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

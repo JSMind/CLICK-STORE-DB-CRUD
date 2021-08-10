@@ -105,6 +105,8 @@
         </div>
       </div>
       <button class="btn btn-success btn-lg" id="Alta" type="submit">ALTA PRODUCTO</button>
+      <button class="btn btn-warning btn-lg" id="Actualizar" type="submit">ACTUALIZAR PRODUCTO</button>
+
       <br>
 
       <div class="row g-3">
@@ -118,29 +120,24 @@
           <button class="btn btn-link btn-lg categoria" data-id="MLM5208">CALZADO</button>
           <button class="btn btn-link btn-lg categoria" data-id="CSMLM100">TREND</button>
         </div>
-        
         <table class="table">
           <thead>
             <tr>
-              <% result.forEach(function(producto){ %>          
-              <th scope="col">ID PRODUCTO  <%= producto.id_producto %> </th>
-              <th scope="col">NOMBRE PRODUCTO <%= producto.nombre_producto %> </th>
-              <th scope="col">PRECIO <%= producto.precio%> </th>
+              <th scope="col">ID PRODUCTO</th>
+              <th scope="col">NOMBRE PRODUCTO</th>
+              <th scope="col">PRECIO</th>
               <!-- <th scope="col">IMAGEN</th> -->
-              <th scope="col">DESCRIPCION <%= producto.descripcion %> </th>
-              <th scope="col">STOCK <%= producto.stock%> </th>
-              <th scope="col">ID_CATEGORIA <%= producto.id_categoria %> </th>
-              <th scope="col">FECHA_REGISTRO <%= producto.Fecha_Registro %> </th>
-              <th scope="col">FECHA_ACTUALIZACION <%= producto.Fecha_Actualizacion %> </th>
-              <%  }) %>
+              <th scope="col">DESCRIPCION</th>
+              <th scope="col">STOCK</th>
+              <th scope="col">ID_CATEGORIA</th>
+              <th scope="col">FECHA_REGISTRO</th>
+              <th scope="col">FECHA_ACTUALIZACION</th>
             </tr>
-              
           </thead>
-          
-          <!-- <tbody id="items"></tbody> -->
+          <tbody id="items"></tbody>
         </table>
 
-        <!-- <template id="templateproductos">
+        <template id="templateproductos">
           <tr>
             <th scope="row">Id_Producto</th>
             <td>Nombre_Producto</td>
@@ -150,58 +147,10 @@
             <td>Stock</td>
             <td>Id_categoria</td>
             <td>FECHA_Actualizacion</td>
-            <td>FECHA_Actualizacion</td>
           </tr>
-        </template> -->
+        </template>
       </div>  
         <button class="btn btn-info btn-lg" id="listaproductos">LISTAR PRODUCTOS</button>
-      <br>
-
-      <div class="row g-3">
-        <!-- Formulario de Actualizar Datos de Producto -->
-        <div class="col-md-7 col-lg-8">
-          <h4 class="mb-3">ACTUALIZAR DATOS DE PRODUCTO</h4>
-          <form class="needs-validation"  novalidate>
-            <div class="row g-3">
-
-              <div class="col-12">
-                <label for="Id_Producto" class="form-label"> Id Producto</label>
-                <input type="text" class="form-control" id="Id_Producto" placeholder="Ej: MLM673563393" value="" required>
-              </div>
-
-              <div class="col-12">
-                <label for="Nombre_Producto" class="form-label">Nombre Producto</label>
-                <input type="text" class="form-control" id="Nombre_Producto" placeholder="Ej: Tenis Dc Unisex Negro Midway" value="" required>
-              </div>
-
-              <div class="col-12">
-                <label for="Precio" class="form-label">Precio</label>
-                <input type="text" class="form-control" id="Precio" placeholder="Ej: 623.00" value="" required>
-              </div>
-
-              <div class="col-12">
-                <label for="Url_Imagen" class="form-label">Url imagen</label>
-                <input type="text" class="form-control" id="Url_Imagen" placeholder="Ej: http://http2.mlstatic.com/D_844384-MLM40694566668_022020-O.jpg" value="" required>
-              </div>
-
-              <div class="col-12">
-                <label for="Descripcion" class="form-label">Descripción</label>
-                <input type="text" class="form-control" id="Descripcion" placeholder="Ej: Tenis negros con suela blanca" value="" required>
-              </div>
-              
-              <div class="col-12">
-                <label for="Stock" class="form-label">Stock</label>
-                <input type="text" class="form-control" id="Stock" placeholder="Ej: 20" value="" required>
-              </div>
-
-              <div class="col-12">
-                <label for="Stock" class="form-label">Id_Categoria</label>
-                <input type="text" class="form-control" id="Id_Categoria" placeholder="Ej: CSMLM100 " value="" required>
-              </div>            
-          </form>
-        </div>
-      </div>
-        <button class="btn btn-warning btn-lg" id="Alta" type="submit">ACTUALIZAR PRODUCTO</button>
       <br>
 
       <div class="row g-3">
@@ -214,41 +163,11 @@
               <div class="col-12">
                 <label for="Id_Producto" class="form-label"> Id Producto</label>
                 <input type="text" class="form-control" id="Id_Producto" placeholder="Ej: MLM673563393" value="" required>
-              </div>
-
-              <div class="col-12">
-                <label for="Nombre_Producto" class="form-label">Nombre Producto</label>
-                <input type="text" class="form-control" id="Nombre_Producto" placeholder="Ej: Tenis Dc Unisex Negro Midway" value="" required>
-              </div>
-
-              <div class="col-12">
-                <label for="Precio" class="form-label">Precio</label>
-                <input type="text" class="form-control" id="Precio" placeholder="Ej: 623.00" value="" required>
-              </div>
-
-              <div class="col-12">
-                <label for="Url_Imagen" class="form-label">Url imagen</label>
-                <input type="text" class="form-control" id="Url_Imagen" placeholder="Ej: http://http2.mlstatic.com/D_844384-MLM40694566668_022020-O.jpg" value="" required>
-              </div>
-
-              <div class="col-12">
-                <label for="Descripcion" class="form-label">Descripción</label>
-                <input type="text" class="form-control" id="Descripcion" placeholder="Ej: Tenis negros con suela blanca" value="" required>
-              </div>
-              
-              <div class="col-12">
-                <label for="Stock" class="form-label">Stock</label>
-                <input type="text" class="form-control" id="Stock" placeholder="Ej: 20" value="" required>
-              </div>
-
-              <div class="col-12">
-                <label for="Stock" class="form-label">Id_Categoria</label>
-                <input type="text" class="form-control" id="Id_Categoria" placeholder="Ej: CSMLM100 " value="" required>
-              </div>            
+              </div>          
           </form>
         </div>
       </div>
-        <button class="btn btn-danger btn-lg" id="Alta" type="submit">BAJA PRODUCTO</button>
+        <button class="btn btn-danger btn-lg" id="Baja" type="submit">BAJA PRODUCTO</button>
 
       <br>
 

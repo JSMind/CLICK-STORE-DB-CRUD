@@ -32,5 +32,15 @@ module.exports.eliminarProducto = async (Id_Producto) => {
         console.log(error)
         throw new Error ('Desde el controlador paso algo')
     }
+} 
 
+    module.exports.actualizarProducto = async (producto) => {
+        try{
+            const resultado = await modeloProductos.actualizarProducto(producto)
+            
+        }
+        catch(error){
+            console.log(error)
+            throw new Error ('Desde el controlador paso algo')
+        }
 }

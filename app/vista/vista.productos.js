@@ -39,12 +39,14 @@ module.exports = (app) => {
     }
 });
 
-app.patch('/productos/update/:IdProducto', async (req,res) => {
-  let Id= req.body;
+app.post('/productos/update', async (req,res) => {
+  let producto = req.body;
   try {
-      const desactivarUsuario = await controladorProductos.desactivarProducto(Id);
-      res.status(200).json({message: 'El Producto se desactivo correctamente'})
-  } catch (error) {
+      const actualizarProducto = await controladorProductos.actualizarProducto(producto);
+      
+      res.status(200).json({message: 'El Producto se actualizo correctamente', actualizarProducto})
+ 
+    } catch (error) {
       console.log(error.message);
       res.status(500).json({mensage: 'Ocurrio un error en el servidor', error: error.message});
   }

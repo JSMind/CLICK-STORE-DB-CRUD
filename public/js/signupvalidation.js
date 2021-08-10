@@ -2,7 +2,7 @@
 let validarTxt = (texto, tipo) =>{
     try {
         if(texto == null || texto.length < 4 || /^\s+$/.test(texto)){
-            throw new Error (`El campo de ${tipo}, debe poseer almenos cuatro letras`);
+            throw new Error (`El campo de ${tipo}, debe poseer un nombre de almenos cuatro letras`);
         } else{
             return 'Registro Valido'
         }
@@ -27,7 +27,7 @@ let validarOtros = (datos,tipo) => {
 
 let validarContrasena = (contrasena) => {
     try {
-        if (contrasena == null || contrasena.length < 8 || /^\s+$/.test(contrasena)) {
+        if (contrasena == null || contrasena == 0 || contrasena.length < 8 || /^\s+$/.test(contrasena)) {
             throw new Error (`El campo de contraseña no cumple con los parametros`)
         } else {
             return 'Registro valido'

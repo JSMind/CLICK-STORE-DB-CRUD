@@ -8,16 +8,12 @@
     <meta name="generator" content="Hugo 0.80.0">
     <title>CLICK STORE LOGIN</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
-    <link href="/css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap core CSS -->
-    <!-- <link href="./assets/dist/css/signin.css" rel="stylesheet"> Custom styles for this template -->
-
-
-    
-    
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/signin.css" rel="stylesheet">
   </head>
   <body class="text-center">
     <header>
-      <nav class="navbar navbar-expand-md navbar-dark  navbar-light" style="background-color: #07a042b7;">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-light" style="background-color: #07a042b7;">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <img src="/img/logo_white_large.png" width="60" height="30" class="d-inline-block align-top" alt="Bootstrap" loading="lazy">
@@ -46,7 +42,7 @@
 
     
     <main class="form-signin">
-      <form>
+      <form id="login">
         <img class="mb-4" src="/img/logo_large.png" alt="" width="120" height="60">
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
         <label for="inputEmail" class="visually-hidden">Email address</label>
@@ -58,15 +54,14 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button id="login" class="w-100 btn btn-lg btn-primary" type="submit">LOG IN</button>
+        <a href="/home"><button class="w-100 btn btn-lg btn-primary" type="submit">LOG IN</button></a>
         <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
       </form>
     </main>
 
-
-    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/signupvalidation.js"></script>
+    <script src="/js/signupcalls.js"></script>
     <script src="/js/login.js"></script>
-
-    
+    <script src="/js/bootstrap.bundle.min.js"></script>   
   </body>
 </html>

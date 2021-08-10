@@ -1,6 +1,8 @@
 // Importar los modulos requeridos
 const controladorUsuarios = require('../app/controlador/controlador.usuarios');
 const rateLimit = require('express-rate-limit');
+const Joi = require('Joi');
+const { modeloLogin, modeloRegistro } = require('./midd.modeloUsuarios');
 
 // Middleware para limitar las consultas por usuario
 const limiteConsultas = rateLimit({
@@ -27,4 +29,22 @@ let usuarioValido = async (req,res,next) =>{
     }
 }
 
-module.exports = {limiteConsultas, usuarioValido}
+let revisarLogin = async (req,res,next) =>{
+    try {
+        await Joi.attempt(req.body, modeloLogin, 'Alguno de los datos no es correcto')
+        return next()
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
+let revisarRegistro = async (req,res,next) =>{
+    try {
+        await Joi.attempt(req.body, modeloRegistro, 'Alguno de los datos no es correcto')
+        return next()
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
+module.exports = {limiteConsultas, usuarioValido, revisarLogin, revisarRegistro}

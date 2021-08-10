@@ -43,7 +43,24 @@ module.exports.bajaProducto = async (IdProducto) => {
     console.log(error)
     throw new Error('Ocurrio un error al dar de baja el Producto de la Base de Datos')
   }
+}  
 
-
+  module.exports.actualizarProducto = async (producto) => {
+  try{
+    
+    let resultado = await sequelize.query(`UPDATE Productos SET  nombre_producto='${producto.title}',
+                                                                 precio='${producto.price}',
+                                                                 url_imagen='${producto.thumbnail}',
+                                                                 descripcion='${producto.descripcion}',
+                                                                 stock='${producto.stock}',
+                                                                 id_categoria='${producto.id_categoria}'
+                                                                 WHERE id_producto='${producto.id_producto}'`)
+    console.log (resultado)
+  
+  }
+  catch(error){
+    console.log(error)
+    throw new Error('Ocurrio un error al Actualizar el Producto de la Base de Datos')
+  }
 
 }

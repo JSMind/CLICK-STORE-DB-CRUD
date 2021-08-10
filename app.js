@@ -13,14 +13,15 @@ const vistaApp = require('./app/vista/vista.app');
 const vistaProductos= require('./app/vista/vista.productos');
 const vistaUsuarios = require('./app/vista/vista.usuarios');
 const vistaCategorias = require('./app/vista/vista.categorias');
-// const midd = require('./midd/midd');
+
+const middUsuarios = require('./middlewares/midd.usuarios');
 
 
 
 // Middlewares globales
 app.use(express.json());
 app.use(cors());
-// app.use(midd.limite);
+app.use(middUsuarios.limiteConsultas);
 
 //Configuraciones globales
 app.use(express.static(__dirname + '/public'))

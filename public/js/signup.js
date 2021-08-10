@@ -22,7 +22,7 @@ btnNuevoRegistro.addEventListener('click', async(e) => {
       validarEmail(usuario.correo);
       validarContrasena(usuario.contrasena);
       e.preventDefault();
-      e.stopPropagation();
+      e.stopPropagation()
       let registro = await registroUsuario(usuario);
       console.log(registro.message)
       if (registro){
