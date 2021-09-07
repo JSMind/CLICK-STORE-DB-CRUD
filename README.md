@@ -1,4 +1,7 @@
-# CLICK-STORE PROYECTO ENTREGA FINAL DEMO
+# Tienda en Linea Click-Store
+
+En este proyecto se realiza la creacion de una tienda en linea, donde el usuario podra registrarse y tener una cuenta segura, para poder realizar sus compras de los productos que seleccione, que se guardaran en un carrito de compras. Posteriormente podra pagar cuando lo desee. Tambien existe un apartado para el administrador donde podra dar de alta, eliminar y actualizar los productos por categoria que asi decida.
+
 Para poder acceder al proyecto, es necesario seguir los siguientes pasos :
 1. Clonar el repositorio con la instrucción:
 
