@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JSMind/Red-Social-de-Developers-Ticket-2.git"
+    "url": "git+https://github.com/JSMind/Tienda-en-Linea-Click-Store.git"
   },
   "author": "Jair Serralde y Daniel Sotelo",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JSMind/Red-Social-de-Developers-Ticket-2/issues"
+    "url": "https://github.com/JSMind/Tienda-en-Linea-Click-Store/issues"
   },
-  "homepage": "https://github.com/JSMind/Red-Social-de-Developers-Ticket-2#readme",
+  "homepage": "https://github.com/JSMind/Tienda-en-Linea-Click-Store#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
