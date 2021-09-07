@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JSMind/CLICK-STORE-DB-CRUD.git"
+    "url": "git+https://github.com/JSMind/Red-Social-de-Developers-Ticket-2.git"
   },
   "author": "Jair Serralde y Daniel Sotelo",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JSMind/CLICK-STORE-DB-CRUD/issues"
+    "url": "https://github.com/JSMind/Red-Social-de-Developers-Ticket-2/issues"
   },
-  "homepage": "https://github.com/JSMind/CLICK-STORE-DB-CRUD#readme",
+  "homepage": "https://github.com/JSMind/Red-Social-de-Developers-Ticket-2#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",

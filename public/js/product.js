@@ -78,7 +78,6 @@ async function obtenerProductos(url){                        //Metodo que consum
         }  
     })
 
-
 }  
 
 
